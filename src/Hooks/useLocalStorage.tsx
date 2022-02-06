@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { task } from "../Library/Interfaces";
 
-const useLocalStorage = (key: string, initialState: task[]) => {
+const useLocalStorage = (key: string, initialState: any) => {
     const [state, setState] = useState(() => {
         const retrieve = localStorage.getItem(key);
         return retrieve ? JSON.parse(retrieve) : initialState;
