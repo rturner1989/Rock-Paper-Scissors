@@ -20,7 +20,7 @@ const ResultsComponent: React.FC<props> = ({ player, opponent, reset }) => {
     return (
         <div>
             <h2>{getResults()}</h2>
-            <button onClick={reset}>click me</button>
+            <button onClick={reset}>Play Again</button>
         </div>
     );
 };

@@ -42,19 +42,21 @@ const GameComponent: React.FC<props> = ({ selections, opponent }) => {
         );
     }
     return (
-        <>
+        <div className="game-container">
             {selections.map((item) => {
                 const { name, strength, image } = item;
                 return (
-                    <div key={item.name}>
-                        <button onClick={() => handleClick(item)}>
+                    <div key={item.name} className="game-btn-container">
+                        <button
+                            className="game-btn"
+                            onClick={() => handleClick(item)}
+                        >
                             <img src={image} alt={`${name} button`} />
-                            {name}
                         </button>
                     </div>
                 );
             })}
-        </>
+        </div>
     );
 };
 
