@@ -7,16 +7,21 @@ import OpponentSelection from "../Opponent Selection/OpponentSelection";
 const RockPaperScissorsLizardSpock = () => {
     const [player, setPlayer] = useState<opponentType | null>(null);
 
-    if (!player) {
-        return (
-            <OpponentSelection
-                playerSelection={setPlayer}
-                title={"Rock Paper Scissors Lizard Spock"}
-            />
-        );
-    }
     return (
-        <GameComponent selections={getSelectionAdvanced} opponent={player} />
+        <div>
+            <div>
+                <h1>ROCK PAPER SCISSORS LIZARD SPOCK</h1>
+            </div>
+            {!player ? (
+                <OpponentSelection playerSelection={setPlayer} />
+            ) : (
+                <GameComponent
+                    selections={getSelectionAdvanced}
+                    opponent={player}
+                    background="./Images/bg-pentagon.svg"
+                />
+            )}
+        </div>
     );
 };
 

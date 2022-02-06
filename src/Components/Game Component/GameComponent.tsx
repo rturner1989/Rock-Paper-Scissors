@@ -6,9 +6,14 @@ import ResultsComponent from "../Results Component/ResultsComponent";
 interface props {
     selections: selection[];
     opponent: opponentType;
+    background: string;
 }
 
-const GameComponent: React.FC<props> = ({ selections, opponent }) => {
+const GameComponent: React.FC<props> = ({
+    selections,
+    opponent,
+    background,
+}) => {
     const [playerSelection, setPlayerSelection] = useState<selection | null>(
         null
     );
@@ -48,7 +53,7 @@ const GameComponent: React.FC<props> = ({ selections, opponent }) => {
                 return (
                     <div key={item.name} className="game-btn-container">
                         <button
-                            className="game-btn"
+                            className={`game-btn ${name}`}
                             onClick={() => handleClick(item)}
                         >
                             <img src={image} alt={`${name} button`} />
@@ -56,6 +61,7 @@ const GameComponent: React.FC<props> = ({ selections, opponent }) => {
                     </div>
                 );
             })}
+            <img src={background} alt="background shape" />
         </div>
     );
 };

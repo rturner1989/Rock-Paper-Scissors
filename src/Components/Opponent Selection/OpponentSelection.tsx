@@ -3,13 +3,12 @@ import { opponentType } from "../../Library/Enums";
 
 interface props {
     playerSelection: React.Dispatch<React.SetStateAction<opponentType | null>>;
-    title: string;
 }
 
-const OpponentSelection: React.FC<props> = ({ playerSelection, title }) => {
+const OpponentSelection: React.FC<props> = ({ playerSelection }) => {
     return (
-        <div>
-            <h1>{title}</h1>
+        <div className="opponent-selector">
+            <h2>Choose your opponent</h2>
             <button onClick={() => playerSelection(opponentType.COMPUTER)}>
                 Computer
             </button>
