@@ -10,3 +10,8 @@ export enum options {
     LIZARD = "Lizard",
     SPOCK = "Spock",
 }
+
+export enum gameType {
+    game1 = "RockPaperScissors",
+    game2 = "RockPaperScissorsLizardSpock",
+}

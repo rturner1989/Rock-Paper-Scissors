@@ -1,40 +1,50 @@
 import { useState } from "react";
-import { opponentType } from "../../Library/Enums";
+import { gameType, opponentType } from "../../Library/Enums";
 import { selection } from "../../Library/Interfaces";
 import ResultsComponent from "../Results Component/ResultsComponent";
 
 interface props {
     selections: selection[];
     opponent: opponentType;
-    background: string;
+    gameMode: string;
 }
 
-const GameComponent: React.FC<props> = ({
-    selections,
-    opponent,
-    background,
-}) => {
+const GameComponent: React.FC<props> = ({ selections, opponent, gameMode }) => {
     const [playerSelection, setPlayerSelection] = useState<selection | null>(
         null
     );
     const [opponentSelection, setOpponentSelection] =
         useState<selection | null>(null);
 
-    function getRandomSelection() {
-        return Math.floor(Math.random() * selections.length);
+    function getRandomNumber(upperLimit: number) {
+        return Math.floor(Math.random() * upperLimit);
     }
 
-    function handleClick(item: selection) {
+    function handlePlayerChoice(item: selection) {
         if (opponent === opponentType.COMPUTER) {
             setPlayerSelection(item);
-            setOpponentSelection(selections[getRandomSelection()]);
+            setOpponentSelection(
+                selections[getRandomNumber(selections.length)]
+            );
         }
-        return;
+        if (opponent === opponentType.PLAYER) {
+            playerSelection
+                ? setOpponentSelection(item)
+                : setPlayerSelection(item);
+        }
     }
 
     function resetGame() {
         setPlayerSelection(null);
         setOpponentSelection(null);
+    }
+
+    function handlePlayerTurn() {
+        if (opponent === opponentType.PLAYER) {
+            if (!playerSelection) return <h2>Player 1</h2>;
+            return <h2>Player 2</h2>;
+        }
+        return;
     }
 
     if (playerSelection && opponentSelection) {
@@ -48,20 +58,38 @@ const GameComponent: React.FC<props> = ({
     }
     return (
         <div className="game-container">
+            {handlePlayerTurn()}
             {selections.map((item) => {
                 const { name, strength, image } = item;
                 return (
                     <div key={item.name} className="game-btn-container">
                         <button
                             className={`game-btn ${name}`}
-                            onClick={() => handleClick(item)}
+                            // onClick={() => {
+                            //     if (!playerSelection) {
+                            //         handlePlayerChoice(item);
+                            //     }
+                            //     if (playerSelection) {
+                            //         handleOpponentChoice(item);
+                            //     }
+                            // }}
+                            onClick={() => {
+                                handlePlayerChoice(item);
+                            }}
                         >
                             <img src={image} alt={`${name} button`} />
                         </button>
                     </div>
                 );
             })}
-            <img src={background} alt="background shape" />
+            <img
+                src={
+                    gameMode === gameType.game1
+                        ? "./Images/bg-triangle.svg"
+                        : "./Images/bg-pentagon.svg"
+                }
+                alt="background shape"
+            />
         </div>
     );
 };

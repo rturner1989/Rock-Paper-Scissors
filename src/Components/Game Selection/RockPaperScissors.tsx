@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { opponentType } from "../../Library/Enums";
+import { gameType, opponentType } from "../../Library/Enums";
 import GameComponent from "../Game Component/GameComponent";
 import OpponentSelection from "../Opponent Selection/OpponentSelection";
 import { getSelectionBasic } from "../../Library/Data";
@@ -22,7 +22,7 @@ const RockPaperScissors = () => {
                 <GameComponent
                     selections={getSelectionBasic}
                     opponent={player}
-                    background="./Images/bg-triangle.svg"
+                    gameMode={gameType.game1}
                 />
             )}
         </div>

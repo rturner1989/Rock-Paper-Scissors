@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getSelectionAdvanced } from "../../Library/Data";
-import { opponentType } from "../../Library/Enums";
+import { gameType, opponentType } from "../../Library/Enums";
 import GameComponent from "../Game Component/GameComponent";
 import OpponentSelection from "../Opponent Selection/OpponentSelection";
 
@@ -22,7 +22,7 @@ const RockPaperScissorsLizardSpock = () => {
                 <GameComponent
                     selections={getSelectionAdvanced}
                     opponent={player}
-                    background="./Images/bg-pentagon.svg"
+                    gameMode={gameType.game2}
                 />
             )}
         </div>
