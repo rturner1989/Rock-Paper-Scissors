@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { gameType, opponentType } from "../../Library/Enums";
 import { selection } from "../../Library/Interfaces";
 import ResultsComponent from "../Results Component/ResultsComponent";
@@ -65,14 +65,6 @@ const GameComponent: React.FC<props> = ({ selections, opponent, gameMode }) => {
                     <div key={item.name} className="game-btn-container">
                         <button
                             className={`game-btn ${name}`}
-                            // onClick={() => {
-                            //     if (!playerSelection) {
-                            //         handlePlayerChoice(item);
-                            //     }
-                            //     if (playerSelection) {
-                            //         handleOpponentChoice(item);
-                            //     }
-                            // }}
                             onClick={() => {
                                 handlePlayerChoice(item);
                             }}

@@ -8,18 +8,32 @@ interface props {
 }
 
 const ResultsComponent: React.FC<props> = ({ player, opponent, reset }) => {
-    console.log(player);
-    console.log(opponent);
-
     function getResults() {
         if (player.name === opponent.name) return "Draw";
-        if (player.strength.includes(opponent.name)) return "Player Wins";
+        if (player.strength.includes(opponent.name)) {
+            return "Player Wins";
+        }
         return "Opponent Wins";
     }
 
     return (
         <div>
-            <h2>{getResults()}</h2>
+            <div>{getResults()}</div>
+            <div>
+                <div className="game-btn-container result">
+                    <button className={`game-btn ${player.name}`}>
+                        <img src={player.image} alt={`${player.name} button`} />
+                    </button>
+                </div>
+                <div className="game-btn-container result">
+                    <button className={`game-btn ${opponent.name}`}>
+                        <img
+                            src={opponent.image}
+                            alt={`${opponent.name} button`}
+                        />
+                    </button>
+                </div>
+            </div>
             <button onClick={reset}>Play Again</button>
         </div>
     );

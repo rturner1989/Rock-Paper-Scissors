@@ -1,6 +1,7 @@
-<!-- Frontend Mentor - Rock, Paper, Scissors solution
+Frontend Mentor - Rock, Paper, Scissors
 
-This is a solution to the Rock, Paper, Scissors challenge on Frontend Mentor. Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is my take of the Rock, Paper, Scissors challenge on Frontend Mentor. Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+
 Table of contents
 
     Overview
@@ -13,32 +14,31 @@ Table of contents
 
 The challenge
 
-Users should be able to:
+Brief:
 
-    View the optimal layout for the game depending on their device's screen size
     Play Rock, Paper, Scissors against the computer
     Maintain the state of the score after refreshing the browser (optional)
+    View the optimal layout for the game depending on their device's screen size
     Bonus: Play Rock, Paper, Scissors, Lizard, Spock against the computer (optional)
+
+Extended Functionality:
+
+    Choose game mode with either basic or advanced game modes
+    Play the game against the computer or against another player
 
 Screenshot
 
 Links
 
-    Solution URL: Frontend Mentor Solution
-    Live Site URL: Live Demo
+    <!-- Solution URL: Frontend Mentor Solution -->
+    <!-- Live Site URL: Live Demo -->
 
 My process
 Built with
 
-    Semantic HTML5 markup
-    Pure CSS
-    Flexbox
+    ReactJS
+    TypeScript
 
 Author
 
-    Robert Turner -->
-
-welcome component
-mode selection component
-opponent selection component
-game
+    Robert Turner
