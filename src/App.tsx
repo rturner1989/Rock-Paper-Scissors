@@ -7,13 +7,20 @@ function App() {
     return (
         <div className="App">
             <Routes>
-                <Route path="/" element={<Welcome />} />
                 <Route
-                    path="RockPaperScissors"
+                    // Switch paths before deploy otherwise wont display correctly
+                    path="/"
+                    // path="/Rock-Paper-Scissors"
+                    element={<Welcome />}
+                />
+                <Route
+                    path="/RockPaperScissors"
+                    // path="/Rock-Paper-Scissors/RockPaperScissors"
                     element={<RockPaperScissors />}
                 />
                 <Route
-                    path="RockPaperScissorsLizardSpock"
+                    path="/RockPaperScissorsLizardSpock"
+                    // path="/Rock-Paper-Scissors/RockPaperScissorsLizardSpock"
                     element={<RockPaperScissorsLizardSpock />}
                 />
             </Routes>
