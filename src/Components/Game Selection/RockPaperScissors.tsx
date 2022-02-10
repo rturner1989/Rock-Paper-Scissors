@@ -4,18 +4,23 @@ import GameComponent from "../Game Component/GameComponent";
 import OpponentSelection from "../Opponent Selection/OpponentSelection";
 import { getSelectionBasic } from "../../Library/Data";
 import useLocalStorage from "../../Hooks/useLocalStorage";
+import { showScore } from "../../Library/Helpers";
 
 const RockPaperScissors = () => {
     const [player, setPlayer] = useState<opponentType | null>(null);
-    const [counter, setCounter] = useLocalStorage("RPS", 0);
+    const [compCounter, setCompCounter] = useLocalStorage("RPS", 0);
+
+    const [first, setFirst] = useState(0);
+    const [second, setSecond] = useState(0);
 
     return (
         <div>
             <div className="header standard-header">
                 <img src="./Images/logo.svg" alt="standard rules logo" />
-                <div>
+                {/* <div>
                     <h3>Score: {counter}</h3>
-                </div>
+                </div> */}
+                {showScore(player, first, second)}
             </div>
             {!player ? (
                 <OpponentSelection playerSelection={setPlayer} />
@@ -24,8 +29,8 @@ const RockPaperScissors = () => {
                     selections={getSelectionBasic}
                     opponent={player}
                     gameMode={gameType.GAME1}
-                    counter={counter}
-                    setCounter={setCounter}
+                    counter={compCounter}
+                    setCounter={setCompCounter}
                 />
             )}
         </div>

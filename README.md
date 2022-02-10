@@ -17,8 +17,8 @@ The challenge
 Brief:
 
     Play Rock, Paper, Scissors against the computer
-    Maintain the state of the score after refreshing the browser (optional)
     View the optimal layout for the game depending on their device's screen size
+    Maintain the state of the score after refreshing the browser (optional)
     Bonus: Play Rock, Paper, Scissors, Lizard, Spock against the computer (optional)
 
 Extended Functionality:
