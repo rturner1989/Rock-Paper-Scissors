@@ -7,16 +7,20 @@ interface props {
     selections: selection[];
     opponent: opponentType;
     gameMode: string;
-    counter: number;
-    setCounter: React.Dispatch<React.SetStateAction<number>>;
+    compCounter: number;
+    setCompCounter: React.Dispatch<React.SetStateAction<number>>;
+    playerCounter: number;
+    setPlayerCounter: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const GameComponent: React.FC<props> = ({
     selections,
     opponent,
     gameMode,
-    counter,
-    setCounter,
+    compCounter,
+    setCompCounter,
+    playerCounter,
+    setPlayerCounter,
 }) => {
     const [playerSelection, setPlayerSelection] = useState<selection | null>(
         null
@@ -62,8 +66,10 @@ const GameComponent: React.FC<props> = ({
                 computer={opponentSelection}
                 opponent={opponent}
                 reset={resetGame}
-                counter={counter}
-                setCounter={setCounter}
+                compCounter={compCounter}
+                setCompCounter={setCompCounter}
+                playerCounter={playerCounter}
+                setPlayerCounter={setPlayerCounter}
             />
         );
     }
