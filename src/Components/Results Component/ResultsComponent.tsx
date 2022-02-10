@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { gameResult } from "../../Library/Enums";
+import { gameResult, opponentType } from "../../Library/Enums";
 import { selection } from "../../Library/Interfaces";
 
 interface props {
     player: selection;
-    opponent: selection;
+    computer: selection;
+    opponent: opponentType;
     reset: () => void;
     counter: number;
     setCounter: React.Dispatch<React.SetStateAction<number>>;
@@ -12,6 +13,7 @@ interface props {
 
 const ResultsComponent: React.FC<props> = ({
     player,
+    computer,
     opponent,
     reset,
     counter,
@@ -20,27 +22,33 @@ const ResultsComponent: React.FC<props> = ({
     const [result, setResult] = useState<string>("");
 
     function getResults() {
-        if (player.name === opponent.name) return gameResult.DRAW;
-        if (player.strength.includes(opponent.name)) {
+        if (player.name === computer.name) return gameResult.DRAW;
+        if (player.strength.includes(computer.name)) {
             return gameResult.PLAYERWIN;
         }
-        return gameResult.OPPONENTWIN;
+        return opponent === opponentType.COMPUTER
+            ? gameResult.COMPUTERWIN
+            : gameResult.PLAYER2WIN;
     }
 
     function updateCounter(result: string) {
-        return result === gameResult.PLAYERWIN
-            ? counter + 1
-            : result === gameResult.OPPONENTWIN
-            ? counter - 1
-            : counter;
+        if (
+            result === gameResult.COMPUTERWIN ||
+            result === gameResult.PLAYER2WIN
+        )
+            return counter > 0 ? counter - 1 : 0;
+        if (result === gameResult.PLAYERWIN) {
+            return counter + 1;
+        }
+        return counter;
     }
 
     useEffect(() => {
-        if (!player || !opponent) return;
+        if (!player || !computer) return;
         const results = getResults();
         setResult(results);
         setCounter(updateCounter(results));
-    }, [player, opponent]);
+    }, [player, computer]);
 
     return (
         <div>
@@ -52,10 +60,10 @@ const ResultsComponent: React.FC<props> = ({
                     </button>
                 </div>
                 <div className="game-btn-container result">
-                    <button className={`game-btn ${opponent.name}`}>
+                    <button className={`game-btn ${computer.name}`}>
                         <img
-                            src={opponent.image}
-                            alt={`${opponent.name} button`}
+                            src={computer.image}
+                            alt={`${computer.name} button`}
                         />
                     </button>
                 </div>

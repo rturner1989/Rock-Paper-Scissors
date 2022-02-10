@@ -59,7 +59,8 @@ const GameComponent: React.FC<props> = ({
         return (
             <ResultsComponent
                 player={playerSelection}
-                opponent={opponentSelection}
+                computer={opponentSelection}
+                opponent={opponent}
                 reset={resetGame}
                 counter={counter}
                 setCounter={setCounter}
