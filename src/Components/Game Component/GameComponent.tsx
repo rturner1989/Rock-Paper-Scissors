@@ -7,9 +7,17 @@ interface props {
     selections: selection[];
     opponent: opponentType;
     gameMode: string;
+    counter: number;
+    setCounter: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const GameComponent: React.FC<props> = ({ selections, opponent, gameMode }) => {
+const GameComponent: React.FC<props> = ({
+    selections,
+    opponent,
+    gameMode,
+    counter,
+    setCounter,
+}) => {
     const [playerSelection, setPlayerSelection] = useState<selection | null>(
         null
     );
@@ -53,6 +61,8 @@ const GameComponent: React.FC<props> = ({ selections, opponent, gameMode }) => {
                 player={playerSelection}
                 opponent={opponentSelection}
                 reset={resetGame}
+                counter={counter}
+                setCounter={setCounter}
             />
         );
     }
@@ -76,7 +86,7 @@ const GameComponent: React.FC<props> = ({ selections, opponent, gameMode }) => {
             })}
             <img
                 src={
-                    gameMode === gameType.game1
+                    gameMode === gameType.GAME1
                         ? "./Images/bg-triangle.svg"
                         : "./Images/bg-pentagon.svg"
                 }

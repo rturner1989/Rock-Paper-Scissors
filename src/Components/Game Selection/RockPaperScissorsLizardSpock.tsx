@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useLocalStorage from "../../Hooks/useLocalStorage";
 import { getSelectionAdvanced } from "../../Library/Data";
 import { gameType, opponentType } from "../../Library/Enums";
 import GameComponent from "../Game Component/GameComponent";
@@ -6,7 +7,7 @@ import OpponentSelection from "../Opponent Selection/OpponentSelection";
 
 const RockPaperScissorsLizardSpock = () => {
     const [player, setPlayer] = useState<opponentType | null>(null);
-    const [counter, setCounter] = useState<number>(0);
+    const [counter, setCounter] = useLocalStorage("RPSLS", 0);
 
     return (
         <div>
@@ -22,7 +23,9 @@ const RockPaperScissorsLizardSpock = () => {
                 <GameComponent
                     selections={getSelectionAdvanced}
                     opponent={player}
-                    gameMode={gameType.game2}
+                    gameMode={gameType.GAME2}
+                    counter={counter}
+                    setCounter={setCounter}
                 />
             )}
         </div>

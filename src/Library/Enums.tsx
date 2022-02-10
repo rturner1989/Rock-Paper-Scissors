@@ -12,6 +12,12 @@ export enum options {
 }
 
 export enum gameType {
-    game1 = "RockPaperScissors",
-    game2 = "RockPaperScissorsLizardSpock",
+    GAME1 = "RockPaperScissors",
+    GAME2 = "RockPaperScissorsLizardSpock",
+}
+
+export enum gameResult {
+    PLAYERWIN = "Player Wins",
+    OPPONENTWIN = "Opponent Wins",
+    DRAW = "Draw",
 }
