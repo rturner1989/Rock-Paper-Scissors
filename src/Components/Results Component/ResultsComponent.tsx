@@ -60,24 +60,29 @@ const ResultsComponent: React.FC<props> = ({
     }, [player, computer]);
 
     return (
-        <div>
-            <h2>{result}</h2>
-            <div>
-                <div className="game-btn-container result">
-                    <button className={`game-btn ${player.name}`}>
-                        <img src={player.image} alt={`${player.name} button`} />
-                    </button>
-                </div>
-                <div className="game-btn-container result">
-                    <button className={`game-btn ${computer.name}`}>
-                        <img
-                            src={computer.image}
-                            alt={`${computer.name} button`}
-                        />
-                    </button>
-                </div>
+        <div className="results-container">
+            <div className="game-btn-container result">
+                <h3>You picked</h3>
+                <button className={`game-btn ${player.name}`}>
+                    <img src={player.image} alt={`${player.name} button`} />
+                </button>
             </div>
-            <button onClick={reset}>Play Again</button>
+            <div className="reset-result-container">
+                <h2>{result}</h2>
+                <button className="reset-btn" onClick={reset}>
+                    Play Again
+                </button>
+            </div>
+            <div className="game-btn-container result">
+                <h3>
+                    {opponent === opponentType.COMPUTER
+                        ? "The House Picked"
+                        : "Opponent Picked"}
+                </h3>
+                <button className={`game-btn ${computer.name}`}>
+                    <img src={computer.image} alt={`${computer.name} button`} />
+                </button>
+            </div>
         </div>
     );
 };
