@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const Welcome = () => {
@@ -8,16 +7,16 @@ const Welcome = () => {
             <h2>Please select your game</h2>
             <button className="game-selection">
                 <Link
-                    to="/RockPaperScissors"
-                    // to="/Rock-Paper-Scissors/RockPaperScissors"
+                    // to="/RockPaperScissors"
+                    to="/Rock-Paper-Scissors/RockPaperScissors"
                 >
                     Rock Paper Scissors
                 </Link>
             </button>
             <button className="game-selection">
                 <Link
-                    to="/RockPaperScissorsLizardSpock"
-                    // to="/Rock-Paper-Scissors/RockPaperScissorsLizardSpock"
+                    // to="/RockPaperScissorsLizardSpock"
+                    to="/Rock-Paper-Scissors/RockPaperScissorsLizardSpock"
                 >
                     Rock Paper Scissors Lizard Spock
                 </Link>

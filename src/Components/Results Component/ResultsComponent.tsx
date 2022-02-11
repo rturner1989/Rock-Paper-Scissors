@@ -25,33 +25,46 @@ const ResultsComponent: React.FC<props> = ({
 }) => {
     const [result, setResult] = useState<string>("");
 
-    function getResults() {
+    function getCompResults() {
         if (player.name === computer.name) return gameResult.DRAW;
         if (player.strength.includes(computer.name)) {
             return gameResult.PLAYERWIN;
         }
-        return opponent === opponentType.COMPUTER
-            ? gameResult.COMPUTERWIN
-            : gameResult.PLAYER2WIN;
+        return gameResult.COMPUTERWIN;
     }
 
-    function updateCounter(result: string) {
+    function getPlayerResults() {
+        if (player.name === computer.name) return gameResult.DRAW;
+        if (player.strength.includes(computer.name)) {
+            return gameResult.PLAYERWIN;
+        }
+        return gameResult.PLAYER2WIN;
+    }
+
+    function updateCounter(result: string, counter: number) {
         if (
             result === gameResult.COMPUTERWIN ||
             result === gameResult.PLAYER2WIN
         )
-            return compCounter > 0 ? compCounter - 1 : 0;
+            return counter > 0 ? counter - 1 : 0;
         if (result === gameResult.PLAYERWIN) {
-            return compCounter + 1;
+            return counter + 1;
         }
-        return compCounter;
+        return counter;
     }
 
     useEffect(() => {
         if (!player || !computer) return;
-        const results = getResults();
-        setResult(results);
-        setCompCounter(updateCounter(results));
+        if (opponent === opponentType.COMPUTER) {
+            const results = getCompResults();
+            setResult(results);
+            setCompCounter(updateCounter(results, compCounter));
+        }
+        if (opponent === opponentType.PLAYER) {
+            const results = getPlayerResults();
+            setResult(results);
+            setPlayerCounter(updateCounter(results, playerCounter));
+        }
     }, [player, computer]);
 
     return (
