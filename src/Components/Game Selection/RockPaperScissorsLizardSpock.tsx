@@ -19,7 +19,7 @@ const RockPaperScissorsLizardSpock = () => {
     }
 
     return (
-        <div className="RockPaperScissorsLizardSpock">
+        <div className="RockPaperScissorsLizardSpock selected-game">
             {isModalShown && (
                 <ModalContainer
                     modal={"RockPaperScissorsLizardSpockRules rules"}
@@ -33,18 +33,20 @@ const RockPaperScissorsLizardSpock = () => {
             )}
             <div className="game-header advanced-header">
                 <img src="./Images/logo-bonus.svg" alt="Advanced Rules Logo" />
-                {showScore(player, compCounter, playerCounter)}
-                {!player && (
-                    // fix bug when page refreshes it pulls previous count data
-                    <button
-                        onClick={() => {
-                            setCompCounter(0);
-                            setPlayerCounter(0);
-                        }}
-                    >
-                        Reset Score
-                    </button>
-                )}
+                <div>
+                    {showScore(player, compCounter, playerCounter)}
+                    {!player && (
+                        // fix bug when page refreshes it pulls previous count data
+                        <button
+                            onClick={() => {
+                                setCompCounter(0);
+                                setPlayerCounter(0);
+                            }}
+                        >
+                            Reset Score
+                        </button>
+                    )}
+                </div>
             </div>
             {!player ? (
                 <OpponentSelection playerSelection={setPlayer} />

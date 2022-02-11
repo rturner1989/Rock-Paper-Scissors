@@ -19,7 +19,7 @@ const RockPaperScissors = () => {
     }
 
     return (
-        <div className="RockPaperScissors">
+        <div className="RockPaperScissors selected-game">
             {isModalShown && (
                 <ModalContainer modal={"RockPaperScissorsRules rules"}>
                     <GameRule
@@ -31,18 +31,20 @@ const RockPaperScissors = () => {
             )}
             <div className="game-header standard-header">
                 <img src="./Images/logo.svg" alt="Standard Rules Logo" />
-                {showScore(player, compCounter, playerCounter)}
-                {!player && (
-                    // fix bug when page refreshes it pulls previous count data
-                    <button
-                        onClick={() => {
-                            setCompCounter(0);
-                            setPlayerCounter(0);
-                        }}
-                    >
-                        Reset Score
-                    </button>
-                )}
+                <div>
+                    {showScore(player, compCounter, playerCounter)}
+                    {!player && (
+                        // fix bug when page refreshes it pulls previous count data
+                        <button
+                            onClick={() => {
+                                setCompCounter(0);
+                                setPlayerCounter(0);
+                            }}
+                        >
+                            Reset Score
+                        </button>
+                    )}
+                </div>
             </div>
             {!player ? (
                 <OpponentSelection playerSelection={setPlayer} />
