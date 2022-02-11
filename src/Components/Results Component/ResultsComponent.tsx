@@ -25,20 +25,12 @@ const ResultsComponent: React.FC<props> = ({
 }) => {
     const [result, setResult] = useState<string>("");
 
-    function getCompResults() {
+    function getResults(second: gameResult) {
         if (player.name === computer.name) return gameResult.DRAW;
         if (player.strength.includes(computer.name)) {
             return gameResult.PLAYERWIN;
         }
-        return gameResult.COMPUTERWIN;
-    }
-
-    function getPlayerResults() {
-        if (player.name === computer.name) return gameResult.DRAW;
-        if (player.strength.includes(computer.name)) {
-            return gameResult.PLAYERWIN;
-        }
-        return gameResult.PLAYER2WIN;
+        return second;
     }
 
     function updateCounter(result: string, counter: number) {
@@ -56,12 +48,12 @@ const ResultsComponent: React.FC<props> = ({
     useEffect(() => {
         if (!player || !computer) return;
         if (opponent === opponentType.COMPUTER) {
-            const results = getCompResults();
+            const results = getResults(gameResult.COMPUTERWIN);
             setResult(results);
             setCompCounter(updateCounter(results, compCounter));
         }
         if (opponent === opponentType.PLAYER) {
-            const results = getPlayerResults();
+            const results = getResults(gameResult.PLAYER2WIN);
             setResult(results);
             setPlayerCounter(updateCounter(results, playerCounter));
         }
