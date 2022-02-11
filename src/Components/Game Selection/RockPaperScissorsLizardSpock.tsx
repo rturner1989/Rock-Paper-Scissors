@@ -23,9 +23,11 @@ const RockPaperScissorsLizardSpock = () => {
             {isModalShown && (
                 <ModalContainer
                     modal={"RockPaperScissorsLizardSpockRules rules"}
-                    handleClose={closeModal}
                 >
-                    <GameRule></GameRule>
+                    <GameRule
+                        img={"./Images/image-rules-bonus.svg"}
+                        handleClose={closeModal}
+                    ></GameRule>
                 </ModalContainer>
             )}
             <div className="header advanced-header">
@@ -56,6 +58,9 @@ const RockPaperScissorsLizardSpock = () => {
                     setPlayerCounter={setPlayerCounter}
                 />
             )}
+            <button onClick={() => setIsModalShown(!isModalShown)}>
+                Rules
+            </button>
         </div>
     );
 };

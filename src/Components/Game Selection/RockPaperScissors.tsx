@@ -21,11 +21,11 @@ const RockPaperScissors = () => {
     return (
         <div className="RockPaperScissors">
             {isModalShown && (
-                <ModalContainer
-                    modal={"RockPaperScissorsRules rules"}
-                    handleClose={closeModal}
-                >
-                    <GameRule></GameRule>
+                <ModalContainer modal={"RockPaperScissorsRules rules"}>
+                    <GameRule
+                        img={"./Images/image-rules.svg"}
+                        handleClose={closeModal}
+                    ></GameRule>
                 </ModalContainer>
             )}
             <div className="header standard-header">
