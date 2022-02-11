@@ -23,7 +23,6 @@ function App() {
                     element={<RockPaperScissorsLizardSpock />}
                 />
             </Routes>
-            <h3>Rules</h3>
         </div>
     );
 }
