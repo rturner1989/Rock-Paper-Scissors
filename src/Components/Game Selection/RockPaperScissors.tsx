@@ -24,12 +24,13 @@ const RockPaperScissors = () => {
                 <ModalContainer modal={"RockPaperScissorsRules rules"}>
                     <GameRule
                         img={"./Images/image-rules.svg"}
+                        altText={"Rock Paper Scissors Rules"}
                         handleClose={closeModal}
                     ></GameRule>
                 </ModalContainer>
             )}
-            <div className="header standard-header">
-                <img src="./Images/logo.svg" alt="standard rules logo" />
+            <div className="game-header standard-header">
+                <img src="./Images/logo.svg" alt="Standard Rules Logo" />
                 {showScore(player, compCounter, playerCounter)}
                 {!player && (
                     // fix bug when page refreshes it pulls previous count data
@@ -56,7 +57,10 @@ const RockPaperScissors = () => {
                     setPlayerCounter={setPlayerCounter}
                 />
             )}
-            <button onClick={() => setIsModalShown(!isModalShown)}>
+            <button
+                className="rules-btn"
+                onClick={() => setIsModalShown(!isModalShown)}
+            >
                 Rules
             </button>
         </div>
