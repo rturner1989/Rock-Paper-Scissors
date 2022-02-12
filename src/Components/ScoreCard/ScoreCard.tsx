@@ -1,10 +1,13 @@
-import { opponentType } from "./Enums";
+import React from "react";
+import { opponentType } from "../../Library/Enums";
 
-export function showScore(
-    player: opponentType | null,
-    opponent: any,
-    user: any
-) {
+interface props {
+    player: opponentType | null;
+    opponent: any;
+    user: any;
+}
+
+const ScoreCard: React.FC<props> = ({ player, opponent, user }) => {
     if (!player) {
         return (
             <div>
@@ -25,4 +28,6 @@ export function showScore(
             <h3>Score vs Player {user}</h3>
         </div>
     );
-}
+};
+
+export default ScoreCard;

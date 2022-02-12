@@ -7,7 +7,7 @@ function useLocalStorage(key: string, initialState: number) {
     });
 
     useEffect(() => {
-        if (state) {
+        if (state !== null && state !== undefined) {
             localStorage.setItem(key, JSON.stringify(state));
         }
     }, [state]);

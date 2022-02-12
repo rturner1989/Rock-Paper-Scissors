@@ -4,9 +4,9 @@ import GameComponent from "../Game Component/GameComponent";
 import OpponentSelection from "../Opponent Selection/OpponentSelection";
 import { getSelectionBasic } from "../../Library/Data";
 import useLocalStorage from "../../Hooks/useLocalStorage";
-import { showScore } from "../../Library/Helpers";
 import ModalContainer from "../Modal Container/ModalContainer";
 import GameRule from "../Game Rule/GameRule";
+import ScoreCard from "../ScoreCard/ScoreCard";
 
 const RockPaperScissors = () => {
     const [player, setPlayer] = useState<opponentType | null>(null);
@@ -32,9 +32,12 @@ const RockPaperScissors = () => {
             <div className="game-header standard-header">
                 <img src="./Images/logo.svg" alt="Standard Rules Logo" />
                 <div>
-                    {showScore(player, compCounter, playerCounter)}
+                    <ScoreCard
+                        player={player}
+                        opponent={compCounter}
+                        user={playerCounter}
+                    />
                     {!player && (
-                        // fix bug when page refreshes it pulls previous count data
                         <button
                             onClick={() => {
                                 setCompCounter(0);

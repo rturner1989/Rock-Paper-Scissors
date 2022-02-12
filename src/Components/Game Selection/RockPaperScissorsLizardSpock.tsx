@@ -2,11 +2,11 @@ import { useState } from "react";
 import useLocalStorage from "../../Hooks/useLocalStorage";
 import { getSelectionAdvanced } from "../../Library/Data";
 import { gameType, opponentType } from "../../Library/Enums";
-import { showScore } from "../../Library/Helpers";
 import GameComponent from "../Game Component/GameComponent";
 import GameRule from "../Game Rule/GameRule";
 import ModalContainer from "../Modal Container/ModalContainer";
 import OpponentSelection from "../Opponent Selection/OpponentSelection";
+import ScoreCard from "../ScoreCard/ScoreCard";
 
 const RockPaperScissorsLizardSpock = () => {
     const [player, setPlayer] = useState<opponentType | null>(null);
@@ -34,9 +34,12 @@ const RockPaperScissorsLizardSpock = () => {
             <div className="game-header advanced-header">
                 <img src="./Images/logo-bonus.svg" alt="Advanced Rules Logo" />
                 <div>
-                    {showScore(player, compCounter, playerCounter)}
+                    <ScoreCard
+                        player={player}
+                        opponent={compCounter}
+                        user={playerCounter}
+                    />
                     {!player && (
-                        // fix bug when page refreshes it pulls previous count data
                         <button
                             onClick={() => {
                                 setCompCounter(0);
