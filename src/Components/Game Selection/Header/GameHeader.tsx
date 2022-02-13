@@ -1,6 +1,7 @@
 import React from "react";
 import { opponentType } from "../../../Library/Enums";
 import ScoreCard from "./ScoreCard/ScoreCard";
+import { VscDebugRestart } from "react-icons/vsc";
 
 interface props {
     containerClass: string;
@@ -33,15 +34,23 @@ const GameHeader: React.FC<props> = ({
                     user={playerCounter}
                 />
                 {!player && (
-                    <button
-                        className="reset-btn"
-                        onClick={() => {
-                            setCompCounter(0);
-                            setPlayerCounter(0);
-                        }}
-                    >
-                        Reset Score
-                    </button>
+                    <div className="reset-btn-container">
+                        <p>Reset Score</p>
+                        <button
+                            className="reset-btn"
+                            onClick={() => {
+                                setCompCounter(0);
+                                setPlayerCounter(0);
+                            }}
+                        >
+                            <span className="visually-hidden">next week</span>
+                            <VscDebugRestart
+                                className="reset-score-svg"
+                                aria-hidden={true}
+                                focusable={false}
+                            />
+                        </button>
+                    </div>
                 )}
             </div>
         </div>

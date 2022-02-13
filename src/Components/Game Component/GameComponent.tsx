@@ -6,7 +6,7 @@ import ResultsComponent from "../Results Component/ResultsComponent";
 interface props {
     selections: selection[];
     opponent: opponentType;
-    gameMode: string;
+    gameMode: gameType;
     compCounter: number;
     setCompCounter: React.Dispatch<React.SetStateAction<number>>;
     playerCounter: number;
@@ -76,29 +76,34 @@ const GameComponent: React.FC<props> = ({
     return (
         <div className="game-container">
             {handlePlayerTurn()}
-            {selections.map((item) => {
-                const { name, strength, image } = item;
-                return (
-                    <div key={item.name} className="game-btn-container">
+            <div className="game-btn-container">
+                {selections.map((item) => {
+                    const { name, strength, image } = item;
+                    return (
                         <button
-                            className={`game-btn ${name}`}
+                            key={item.name}
+                            className={
+                                gameMode === gameType.GAME1
+                                    ? `game-btn ${name}`
+                                    : `game-btn ${name}-advanced`
+                            }
                             onClick={() => {
                                 handlePlayerChoice(item);
                             }}
                         >
                             <img src={image} alt={`${name} button`} />
                         </button>
-                    </div>
-                );
-            })}
-            <img
-                src={
-                    gameMode === gameType.GAME1
-                        ? "./Images/bg-triangle.svg"
-                        : "./Images/bg-pentagon.svg"
-                }
-                alt="background shape"
-            />
+                    );
+                })}
+                <img
+                    src={
+                        gameMode === gameType.GAME1
+                            ? "./Images/bg-triangle.svg"
+                            : "./Images/bg-pentagon.svg"
+                    }
+                    alt="background shape"
+                />
+            </div>
         </div>
     );
 };

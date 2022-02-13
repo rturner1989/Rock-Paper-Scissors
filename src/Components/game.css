@@ -13,6 +13,7 @@
     align-items: center;
     gap: 1rem;
     padding: 2rem;
+    color: var(--BaseTextColor);
 }
 .welcome-navigation {
     padding: 2rem;
@@ -35,7 +36,44 @@
     max-width: 600px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    border: solid 2px var(--HeaderOutline);
+    border-radius: 15px;
+    padding: 1rem;
+}
+.score-reset-container {
+    background-color: var(--BaseTextColor);
+    height: 100%;
+    border-radius: 15px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.score-container {
+    display: flex;
+    flex-direction: column;
+}
+.score-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.reset-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.reset-btn {
+    border: unset;
+    background: unset;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.reset-score-svg {
+    display: block;
 }
 
 /* Modal */
@@ -56,8 +94,10 @@
     background-color: white;
 }
 
+/* Game Content */
 .game-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 3rem;
@@ -66,11 +106,11 @@
 .game-btn-container {
     width: fit-content;
     height: fit-content;
+    padding: 5rem;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: solid 1px red;
+    position: relative;
 }
 .game-btn {
     border-radius: 100%;
@@ -86,19 +126,48 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    z-index: 50;
 }
-.game-btn:first-child {
-    width: 100%;
-    height: 100%;
+/* Basic Buttons */
+.Rock {
+    bottom: 0;
 }
+.Paper {
+    top: 0;
+    left: 0;
+}
+.Scissors {
+    top: 0;
+    right: 0;
+}
+/* Advanced Buttons */
+.Rock-advanced {
+    bottom: 0;
+    right: 3.5rem;
+}
+.Paper-advanced {
+    right: 0;
+    top: 7rem;
+}
+.Scissors-advanced {
+    top: 0;
+}
+.Spock-advanced {
+    left: 0;
+    top: 7rem;
+}
+.Lizard-advanced {
+    bottom: 0;
+    left: 3.5rem;
+}
+/* Results Page */
 .results-container {
-    border: black solid 1px;
+    /* border: black solid 1px; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    max-width: 600px;
-    max-height: 400px;
-    justify-items: center;
-    align-content: center;
+    gap: 1rem;
+    padding: 2rem;
 }
 .reset-result-container {
     width: 100%;
@@ -106,4 +175,29 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
+}
+.game-btn-container-result {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    gap: 1rem;
+}
+.result-btn {
+    border-radius: 100%;
+    border-width: 20px;
+    border-style: solid;
+    padding: 4rem;
+    max-height: 150px;
+    max-width: 150px;
+    background-color: #ffffff;
+    background-origin: border-box;
+    transition: 0.2s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
 }

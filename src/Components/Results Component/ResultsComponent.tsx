@@ -61,9 +61,9 @@ const ResultsComponent: React.FC<props> = ({
 
     return (
         <div className="results-container">
-            <div className="game-btn-container result">
+            <div className="game-btn-container-result">
                 <h3>You picked</h3>
-                <button className={`game-btn ${player.name}`}>
+                <button className={`result-btn ${player.name}-result`}>
                     <img src={player.image} alt={`${player.name} button`} />
                 </button>
             </div>
@@ -73,13 +73,13 @@ const ResultsComponent: React.FC<props> = ({
                     Play Again
                 </button>
             </div>
-            <div className="game-btn-container result">
+            <div className="game-btn-container-result">
                 <h3>
                     {opponent === opponentType.COMPUTER
                         ? "The House Picked"
                         : "Opponent Picked"}
                 </h3>
-                <button className={`game-btn ${computer.name}`}>
+                <button className={`result-btn ${computer.name}-result`}>
                     <img src={computer.image} alt={`${computer.name} button`} />
                 </button>
             </div>
