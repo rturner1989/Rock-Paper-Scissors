@@ -37,7 +37,7 @@ const GameHeader: React.FC<props> = ({
                     <div className="reset-btn-container">
                         <p>Reset Score</p>
                         <button
-                            className="reset-btn"
+                            className="score-reset-btn"
                             onClick={() => {
                                 setCompCounter(0);
                                 setPlayerCounter(0);

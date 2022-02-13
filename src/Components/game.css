@@ -48,6 +48,8 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 1rem;
 }
 .score-container {
@@ -66,7 +68,7 @@
     justify-content: center;
     gap: 1rem;
 }
-.reset-btn {
+.score-reset-btn {
     border: unset;
     background: unset;
     font-size: 2rem;
