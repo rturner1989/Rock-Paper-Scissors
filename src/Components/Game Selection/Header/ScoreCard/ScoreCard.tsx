@@ -3,8 +3,8 @@ import { opponentType } from "../../../../Library/Enums";
 
 interface props {
     player: opponentType | null;
-    opponent: any;
-    user: any;
+    opponent: number;
+    user: number;
 }
 
 const ScoreCard: React.FC<props> = ({ player, opponent, user }) => {
@@ -12,7 +12,7 @@ const ScoreCard: React.FC<props> = ({ player, opponent, user }) => {
         return (
             <div className="score-container">
                 <div className="score-text">
-                    <h3>Score vs Comp</h3>
+                    <h3>Score vs Computer</h3>
                     <h3>{opponent}</h3>
                 </div>
                 <div className="score-text">
@@ -26,7 +26,7 @@ const ScoreCard: React.FC<props> = ({ player, opponent, user }) => {
         return (
             <div className="score-container">
                 <div className="score-text">
-                    <h3>Score vs Comp</h3>
+                    <h3>Score</h3>
                     <h3>{opponent}</h3>
                 </div>
             </div>
@@ -35,7 +35,7 @@ const ScoreCard: React.FC<props> = ({ player, opponent, user }) => {
     return (
         <div className="score-container">
             <div className="score-text">
-                <h3>Score vs Player</h3>
+                <h3>Score</h3>
                 <h3>{user}</h3>
             </div>
         </div>
