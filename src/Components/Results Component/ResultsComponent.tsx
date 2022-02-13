@@ -7,10 +7,8 @@ interface props {
     computer: selection;
     opponent: opponentType;
     reset: () => void;
-    compCounter: number;
-    setCompCounter: React.Dispatch<React.SetStateAction<number>>;
-    playerCounter: number;
-    setPlayerCounter: React.Dispatch<React.SetStateAction<number>>;
+    counter: number;
+    setCounter: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const ResultsComponent: React.FC<props> = ({
@@ -18,10 +16,8 @@ const ResultsComponent: React.FC<props> = ({
     computer,
     opponent,
     reset,
-    compCounter,
-    setCompCounter,
-    playerCounter,
-    setPlayerCounter,
+    counter,
+    setCounter,
 }) => {
     const [result, setResult] = useState<string>("");
 
@@ -33,7 +29,7 @@ const ResultsComponent: React.FC<props> = ({
         return second;
     }
 
-    function updateCounter(result: string, counter: number) {
+    function updateCounter(result: string) {
         if (
             result === gameResult.COMPUTERWIN ||
             result === gameResult.PLAYER2WIN
@@ -47,16 +43,9 @@ const ResultsComponent: React.FC<props> = ({
 
     useEffect(() => {
         if (!player || !computer) return;
-        if (opponent === opponentType.COMPUTER) {
-            const results = getResults(gameResult.COMPUTERWIN);
-            setResult(results);
-            setCompCounter(updateCounter(results, compCounter));
-        }
-        if (opponent === opponentType.PLAYER) {
-            const results = getResults(gameResult.PLAYER2WIN);
-            setResult(results);
-            setPlayerCounter(updateCounter(results, playerCounter));
-        }
+        const results = getResults(gameResult.COMPUTERWIN);
+        setResult(results);
+        setCounter(updateCounter(results));
     }, [player, computer]);
 
     return (

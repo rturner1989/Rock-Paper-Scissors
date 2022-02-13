@@ -66,10 +66,16 @@ const GameComponent: React.FC<props> = ({
                 computer={opponentSelection}
                 opponent={opponent}
                 reset={resetGame}
-                compCounter={compCounter}
-                setCompCounter={setCompCounter}
-                playerCounter={playerCounter}
-                setPlayerCounter={setPlayerCounter}
+                counter={
+                    opponent === opponentType.COMPUTER
+                        ? compCounter
+                        : playerCounter
+                }
+                setCounter={
+                    opponent === opponentType.COMPUTER
+                        ? setCompCounter
+                        : setPlayerCounter
+                }
             />
         );
     }
