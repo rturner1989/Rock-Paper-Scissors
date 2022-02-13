@@ -1,7 +1,7 @@
 import { useState } from "react";
-import useLocalStorage from "../../Hooks/useLocalStorage";
 import { getSelectionAdvanced } from "../../Library/Data";
 import { gameType, opponentType } from "../../Library/Enums";
+import useLocalStorage from "../../Hooks/useLocalStorage";
 import GameComponent from "../Game Component/GameComponent";
 import GameRule from "../Game Rule/GameRule";
 import ModalContainer from "../Modal Container/ModalContainer";
@@ -22,7 +22,9 @@ const RockPaperScissorsLizardSpock = () => {
         <div className="RockPaperScissorsLizardSpock selected-game">
             {isModalShown && (
                 <ModalContainer
-                    modal={"RockPaperScissorsLizardSpockRules rules"}
+                    modal={
+                        "RockPaperScissorsLizardSpockRules rules-modal-container"
+                    }
                 >
                     <GameRule
                         img={"./Images/image-rules-bonus.svg"}

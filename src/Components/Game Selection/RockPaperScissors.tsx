@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { gameType, opponentType } from "../../Library/Enums";
-import GameComponent from "../Game Component/GameComponent";
-import OpponentSelection from "../Opponent Selection/OpponentSelection";
 import { getSelectionBasic } from "../../Library/Data";
+import { gameType, opponentType } from "../../Library/Enums";
 import useLocalStorage from "../../Hooks/useLocalStorage";
-import ModalContainer from "../Modal Container/ModalContainer";
+import GameComponent from "../Game Component/GameComponent";
 import GameRule from "../Game Rule/GameRule";
+import ModalContainer from "../Modal Container/ModalContainer";
+import OpponentSelection from "../Opponent Selection/OpponentSelection";
 import ScoreCard from "../ScoreCard/ScoreCard";
 
 const RockPaperScissors = () => {
@@ -21,7 +21,9 @@ const RockPaperScissors = () => {
     return (
         <div className="RockPaperScissors selected-game">
             {isModalShown && (
-                <ModalContainer modal={"RockPaperScissorsRules rules"}>
+                <ModalContainer
+                    modal={"RockPaperScissorsRules rules-modal-container"}
+                >
                     <GameRule
                         img={"./Images/image-rules.svg"}
                         altText={"Rock Paper Scissors Rules"}
