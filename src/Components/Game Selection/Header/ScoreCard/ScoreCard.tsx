@@ -1,5 +1,5 @@
 import React from "react";
-import { opponentType } from "../../Library/Enums";
+import { opponentType } from "../../../../Library/Enums";
 
 interface props {
     player: opponentType | null;
@@ -10,7 +10,7 @@ interface props {
 const ScoreCard: React.FC<props> = ({ player, opponent, user }) => {
     if (!player) {
         return (
-            <div>
+            <div className="score-container">
                 <h3>Score vs Comp {opponent}</h3>
                 <h3>Score vs Player {user}</h3>
             </div>
@@ -18,13 +18,13 @@ const ScoreCard: React.FC<props> = ({ player, opponent, user }) => {
     }
     if (player === opponentType.COMPUTER) {
         return (
-            <div>
+            <div className="score-container">
                 <h3>Score vs Comp {opponent}</h3>
             </div>
         );
     }
     return (
-        <div>
+        <div className="score-container">
             <h3>Score vs Player {user}</h3>
         </div>
     );

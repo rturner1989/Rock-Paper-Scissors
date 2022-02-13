@@ -3,10 +3,10 @@ import { getSelectionAdvanced } from "../../Library/Data";
 import { gameType, opponentType } from "../../Library/Enums";
 import useLocalStorage from "../../Hooks/useLocalStorage";
 import GameComponent from "../Game Component/GameComponent";
-import GameRule from "../Game Rule/GameRule";
-import ModalContainer from "../Modal Container/ModalContainer";
+import GameRule from "../Modal/Game Rule/GameRule";
+import ModalContainer from "../Modal/Modal Container/ModalContainer";
 import OpponentSelection from "../Opponent Selection/OpponentSelection";
-import ScoreCard from "../ScoreCard/ScoreCard";
+import GameHeader from "./Header/GameHeader";
 
 const RockPaperScissorsLizardSpock = () => {
     const [player, setPlayer] = useState<opponentType | null>(null);
@@ -33,26 +33,16 @@ const RockPaperScissorsLizardSpock = () => {
                     ></GameRule>
                 </ModalContainer>
             )}
-            <div className="game-header advanced-header">
-                <img src="./Images/logo-bonus.svg" alt="Advanced Rules Logo" />
-                <div>
-                    <ScoreCard
-                        player={player}
-                        opponent={compCounter}
-                        user={playerCounter}
-                    />
-                    {!player && (
-                        <button
-                            onClick={() => {
-                                setCompCounter(0);
-                                setPlayerCounter(0);
-                            }}
-                        >
-                            Reset Score
-                        </button>
-                    )}
-                </div>
-            </div>
+            <GameHeader
+                containerClass={"advanced-header"}
+                imgPath={"./Images/logo-bonus.svg"}
+                imgAlt={"Advanced Rules Logo"}
+                player={player}
+                compCounter={compCounter}
+                setCompCounter={setCompCounter}
+                playerCounter={playerCounter}
+                setPlayerCounter={setPlayerCounter}
+            />
             {!player ? (
                 <OpponentSelection playerSelection={setPlayer} />
             ) : (

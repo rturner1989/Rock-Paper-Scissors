@@ -3,10 +3,10 @@ import { getSelectionBasic } from "../../Library/Data";
 import { gameType, opponentType } from "../../Library/Enums";
 import useLocalStorage from "../../Hooks/useLocalStorage";
 import GameComponent from "../Game Component/GameComponent";
-import GameRule from "../Game Rule/GameRule";
-import ModalContainer from "../Modal Container/ModalContainer";
+import GameRule from "../Modal/Game Rule/GameRule";
+import ModalContainer from "../Modal/Modal Container/ModalContainer";
 import OpponentSelection from "../Opponent Selection/OpponentSelection";
-import ScoreCard from "../ScoreCard/ScoreCard";
+import GameHeader from "./Header/GameHeader";
 
 const RockPaperScissors = () => {
     const [player, setPlayer] = useState<opponentType | null>(null);
@@ -31,26 +31,16 @@ const RockPaperScissors = () => {
                     ></GameRule>
                 </ModalContainer>
             )}
-            <div className="game-header standard-header">
-                <img src="./Images/logo.svg" alt="Standard Rules Logo" />
-                <div>
-                    <ScoreCard
-                        player={player}
-                        opponent={compCounter}
-                        user={playerCounter}
-                    />
-                    {!player && (
-                        <button
-                            onClick={() => {
-                                setCompCounter(0);
-                                setPlayerCounter(0);
-                            }}
-                        >
-                            Reset Score
-                        </button>
-                    )}
-                </div>
-            </div>
+            <GameHeader
+                containerClass={"standard-header"}
+                imgPath={"./Images/logo.svg"}
+                imgAlt={"Standard Rules Logo"}
+                player={player}
+                compCounter={compCounter}
+                setCompCounter={setCompCounter}
+                playerCounter={playerCounter}
+                setPlayerCounter={setPlayerCounter}
+            />
             {!player ? (
                 <OpponentSelection playerSelection={setPlayer} />
             ) : (
