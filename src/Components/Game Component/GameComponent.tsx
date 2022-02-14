@@ -84,10 +84,10 @@ const GameComponent: React.FC<props> = ({
             {handlePlayerTurn()}
             <div className="game-btn-container">
                 {selections.map((item) => {
-                    const { name, strength, image } = item;
+                    const { name, image } = item;
                     return (
                         <button
-                            key={item.name}
+                            key={name}
                             className={
                                 gameMode === gameType.GAME1
                                     ? `game-btn ${name}`
