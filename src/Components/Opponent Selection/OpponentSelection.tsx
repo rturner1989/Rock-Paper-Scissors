@@ -9,12 +9,14 @@ const OpponentSelection: React.FC<props> = ({ playerSelection }) => {
     return (
         <div className="opponent-selector">
             <h2>Choose your opponent</h2>
-            <button onClick={() => playerSelection(opponentType.COMPUTER)}>
-                Computer
-            </button>
-            <button onClick={() => playerSelection(opponentType.PLAYER)}>
-                Player
-            </button>
+            <div>
+                <button onClick={() => playerSelection(opponentType.COMPUTER)}>
+                    Computer
+                </button>
+                <button onClick={() => playerSelection(opponentType.PLAYER)}>
+                    Player
+                </button>
+            </div>
         </div>
     );
 };
