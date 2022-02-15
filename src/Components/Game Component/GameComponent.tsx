@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { gameType, opponentType } from "../../Library/Enums";
 import { selection } from "../../Library/Interfaces";
+import Button from "../Button/Button";
 import ResultsComponent from "../Results Component/ResultsComponent";
 
 interface props {
@@ -87,30 +88,13 @@ const GameComponent: React.FC<props> = ({
                 {selections.map((item) => {
                     const { name, image } = item;
                     return (
-                        <button
-                            key={name}
-                            className={
-                                gameMode === gameType.GAME1
-                                    ? `game-btn ${name}`
-                                    : `game-btn ${name}-advanced`
-                            }
-                            onClick={() => {
-                                handlePlayerChoice(item);
-                            }}
-                        >
-                            <img
-                                className={`choice-svg ${image}-svg`}
-                                src={image}
-                                alt={`${name} button`}
-                            />
-                            <div
-                                className={
-                                    gameMode === gameType.GAME1
-                                        ? "icon-bg standard-bg"
-                                        : "icon-bg advanced-bg"
-                                }
-                            ></div>
-                        </button>
+                        <Button
+                            gameMode={gameMode}
+                            name={name}
+                            image={image}
+                            item={item}
+                            handlePlayerChoice={handlePlayerChoice}
+                        />
                     );
                 })}
                 <img
