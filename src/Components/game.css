@@ -179,7 +179,6 @@
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
-
     border-radius: 100%;
     padding: 10px;
     box-shadow: inset 0px 8px 0px 0px hsl(0, 0%, 80%);
@@ -194,6 +193,119 @@
 }
 .choice-svg {
     z-index: 50;
+}
+
+/* Results Page */
+.results-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 2rem;
+    position: relative;
+}
+.reset-result-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 3.5s;
+    gap: 1rem;
+    min-width: 220px;
+}
+.winner-heading {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: var(--BaseTextColor);
+}
+.reset-btn {
+    opacity: 0;
+    animation: fadeIn 1s ease 4.5s forwards;
+    border: unset;
+    border-radius: 5px;
+    background: var(--BaseTextColor);
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 0.6rem 2rem;
+    color: var(--HeaderOutline);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.game-btn-container-result {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.result-heading {
+    width: 100%;
+    color: var(--BaseTextColor);
+    opacity: 0;
+    text-transform: uppercase;
+    text-align: center;
+}
+.result-btn {
+    border-radius: 100%;
+    border-width: 20px;
+    border-style: solid;
+    border-color: transparent;
+    padding: 4rem;
+    max-width: 150px;
+    max-height: 150px;
+    background-color: #ffffff;
+    background-origin: border-box;
+    transition: 0.5s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    opacity: 0;
+}
+.user-btn,
+.user-heading {
+    animation: fadeIn 0.5s ease 1s forwards, moveLeft 1s ease 3s forwards;
+    transform: translateX(7rem);
+}
+.opponent-btn,
+.opponent-heading {
+    animation: fadeIn 0.5s ease 2s forwards, moveRight 1s ease 3s forwards;
+    transform: translateX(-7rem);
+}
+
+.reset-btn:hover {
+    transform: rotate(-360deg);
+}
+.restart-game-svg {
+    display: block;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100;
+    }
+}
+@keyframes moveLeft {
+    from {
+        transform: translateX(7rem);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes moveRight {
+    from {
+        transform: translateX(-7rem);
+    }
+    to {
+        transform: translateX(0);
+    }
 }
 /* Basic Buttons */
 .Rock {
@@ -253,118 +365,6 @@
     background-image: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
     box-shadow: 0px 7px 0px 0px hsl(261, 72%, 45%);
 }
-/* Results Page */
-.results-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 2rem;
-    position: relative;
-}
-.reset-result-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    opacity: 0;
-    animation: fadeIn 1s ease forwards;
-    animation-delay: 3.5s;
-    gap: 1rem;
-    min-width: 220px;
-}
-.winner-heading {
-    font-size: 2rem;
-    text-transform: uppercase;
-    color: var(--BaseTextColor);
-}
-.reset-btn {
-    opacity: 0;
-    animation: fadeIn 1s ease 4.5s forwards;
-    border: unset;
-    border-radius: 5px;
-    background: var(--BaseTextColor);
-    font-size: 0.8rem;
-    font-weight: 800;
-    padding: 0.6rem 2rem;
-    color: var(--HeaderOutline);
-    cursor: pointer;
-    text-transform: uppercase;
-}
-.game-btn-container-result {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-.result-heading {
-    width: 100%;
-    color: var(--BaseTextColor);
-    opacity: 0;
-    text-transform: uppercase;
-    text-align: center;
-}
-.result-btn {
-    border-radius: 100%;
-    border-width: 20px;
-    border-style: solid;
-    padding: 4rem;
-    max-width: 150px;
-    max-height: 150px;
-    background-color: #ffffff;
-    background-origin: border-box;
-    transition: 0.5s;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 50;
-    opacity: 0;
-}
-.user-btn,
-.user-heading {
-    animation: fadeIn 0.5s ease 1s forwards, moveLeft 1s ease 3s forwards;
-    transform: translateX(7rem);
-}
-.opponent-btn,
-.opponent-heading {
-    animation: fadeIn 0.5s ease 2s forwards, moveRight 1s ease 3s forwards;
-    transform: translateX(-7rem);
-}
-
-.reset-btn:hover {
-    transform: rotate(-360deg);
-}
-.restart-game-svg {
-    display: block;
-}
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 100;
-    }
-}
-@keyframes moveLeft {
-    from {
-        transform: translateX(7rem);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-@keyframes moveRight {
-    from {
-        transform: translateX(-7rem);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
 /* Rules Button */
 .rules-btn {
     padding: 0.4rem 2rem;

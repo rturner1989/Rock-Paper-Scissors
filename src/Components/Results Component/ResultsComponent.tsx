@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { gameResult, opponentType } from "../../Library/Enums";
+import { gameResult, gameType, opponentType } from "../../Library/Enums";
 import { selection } from "../../Library/Interfaces";
+import Button from "../Button/Button";
 
 interface props {
     player: selection;
@@ -8,6 +9,7 @@ interface props {
     opponent: opponentType;
     reset: () => void;
     counter: number;
+    gameMode: gameType;
     setCounter: React.Dispatch<React.SetStateAction<number>>;
 }
 
@@ -18,6 +20,7 @@ const ResultsComponent: React.FC<props> = ({
     reset,
     counter,
     setCounter,
+    gameMode,
 }) => {
     const [result, setResult] = useState<string>("");
 
@@ -54,9 +57,18 @@ const ResultsComponent: React.FC<props> = ({
         <div className="results-container">
             <div className="game-btn-container-result">
                 <h3 className="result-heading user-heading">You picked</h3>
-                <button className="result-btn user-btn">
-                    <img src={player.image} alt={`${player.name} button`} />
-                </button>
+                <Button
+                    btnClass={`result-btn user-btn ${player.name} ${player.name}-advanced`}
+                    iconClass={
+                        gameMode === gameType.GAME1
+                            ? "standard-bg"
+                            : "advanced-bg"
+                    }
+                    name={player.name}
+                    image={player.image}
+                    item={player}
+                    handlePlayerChoice={undefined}
+                />
             </div>
             <div className="reset-result-container">
                 <h2 className="winner-heading">{result}</h2>
@@ -70,9 +82,18 @@ const ResultsComponent: React.FC<props> = ({
                         ? "The House Picked"
                         : "Opponent Picked"}
                 </h3>
-                <button className="result-btn opponent-btn">
-                    <img src={computer.image} alt={`${computer.name} button`} />
-                </button>
+                <Button
+                    btnClass={`result-btn opponent-btn ${computer.name} ${computer.name}-advanced`}
+                    iconClass={
+                        gameMode === gameType.GAME1
+                            ? "standard-bg"
+                            : "advanced-bg"
+                    }
+                    name={computer.name}
+                    image={computer.image}
+                    item={computer}
+                    handlePlayerChoice={undefined}
+                />
             </div>
         </div>
     );

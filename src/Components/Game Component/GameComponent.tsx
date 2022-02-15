@@ -78,6 +78,7 @@ const GameComponent: React.FC<props> = ({
                         ? setCompCounter
                         : setPlayerCounter
                 }
+                gameMode={gameMode}
             />
         );
     }
@@ -89,11 +90,22 @@ const GameComponent: React.FC<props> = ({
                     const { name, image } = item;
                     return (
                         <Button
-                            gameMode={gameMode}
+                            btnClass={
+                                gameMode === gameType.GAME1
+                                    ? `game-btn ${name}`
+                                    : `game-btn ${name}-advanced`
+                            }
+                            iconClass={
+                                gameMode === gameType.GAME1
+                                    ? "standard-bg"
+                                    : "advanced-bg"
+                            }
                             name={name}
                             image={image}
                             item={item}
-                            handlePlayerChoice={handlePlayerChoice}
+                            handlePlayerChoice={() => {
+                                handlePlayerChoice(item);
+                            }}
                         />
                     );
                 })}

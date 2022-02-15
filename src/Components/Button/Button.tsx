@@ -3,44 +3,29 @@ import { gameType, options } from "../../Library/Enums";
 import { selection } from "../../Library/Interfaces";
 
 interface props {
-    gameMode: gameType;
+    btnClass: string;
+    iconClass: string;
     name: options;
     image: string;
     item: selection;
-    handlePlayerChoice: (item: selection) => void;
+    handlePlayerChoice?: () => void;
 }
 
 const Button: React.FC<props> = ({
-    gameMode,
+    btnClass,
+    iconClass,
     name,
     image,
-    item,
     handlePlayerChoice,
 }) => {
     return (
-        <button
-            key={name}
-            className={
-                gameMode === gameType.GAME1
-                    ? `game-btn ${name}`
-                    : `game-btn ${name}-advanced`
-            }
-            onClick={() => {
-                handlePlayerChoice(item);
-            }}
-        >
+        <button key={name} className={btnClass} onClick={handlePlayerChoice}>
             <img
                 className={`choice-svg ${image}-svg`}
                 src={image}
                 alt={`${name} button`}
             />
-            <div
-                className={
-                    gameMode === gameType.GAME1
-                        ? "icon-bg standard-bg"
-                        : "icon-bg advanced-bg"
-                }
-            ></div>
+            <div className={`icon-bg ${iconClass}`}></div>
         </button>
     );
 };
