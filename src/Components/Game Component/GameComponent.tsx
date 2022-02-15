@@ -89,6 +89,7 @@ const GameComponent: React.FC<props> = ({
                     const { name, image } = item;
                     return (
                         <Button
+                            key={name}
                             btnClass={
                                 gameMode === gameType.GAME1
                                     ? `game-btn ${name}`
