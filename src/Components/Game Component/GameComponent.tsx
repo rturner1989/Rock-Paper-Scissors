@@ -53,8 +53,9 @@ const GameComponent: React.FC<props> = ({
 
     function handlePlayerTurn() {
         if (opponent === opponentType.PLAYER) {
-            if (!playerSelection) return <h2>Player 1</h2>;
-            return <h2>Player 2</h2>;
+            if (!playerSelection)
+                return <h2 className="game-heading">Player 1</h2>;
+            return <h2 className="game-heading">Player 2</h2>;
         }
         return;
     }
@@ -97,7 +98,18 @@ const GameComponent: React.FC<props> = ({
                                 handlePlayerChoice(item);
                             }}
                         >
-                            <img src={image} alt={`${name} button`} />
+                            <img
+                                className={`choice-svg ${image}-svg`}
+                                src={image}
+                                alt={`${name} button`}
+                            />
+                            <div
+                                className={
+                                    gameMode === gameType.GAME1
+                                        ? "icon-bg standard-bg"
+                                        : "icon-bg advanced-bg"
+                                }
+                            ></div>
                         </button>
                     );
                 })}

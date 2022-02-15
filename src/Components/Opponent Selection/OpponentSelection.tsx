@@ -8,7 +8,7 @@ interface props {
 const OpponentSelection: React.FC<props> = ({ playerSelection }) => {
     return (
         <div className="opponent-selector">
-            <h2>Choose your opponent</h2>
+            <h2 className="opponent-selection-heading">Choose your opponent</h2>
             <div>
                 <button onClick={() => playerSelection(opponentType.COMPUTER)}>
                     Computer

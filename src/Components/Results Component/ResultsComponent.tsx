@@ -21,12 +21,14 @@ const ResultsComponent: React.FC<props> = ({
 }) => {
     const [result, setResult] = useState<string>("");
 
-    function getResults(second: gameResult) {
+    function getResults() {
         if (player.name === computer.name) return gameResult.DRAW;
         if (player.strength.includes(computer.name)) {
             return gameResult.PLAYERWIN;
         }
-        return second;
+        return opponent === opponentType.COMPUTER
+            ? gameResult.COMPUTERWIN
+            : gameResult.PLAYER2WIN;
     }
 
     function updateCounter(result: string) {
@@ -43,7 +45,7 @@ const ResultsComponent: React.FC<props> = ({
 
     useEffect(() => {
         if (!player || !computer) return;
-        const results = getResults(gameResult.COMPUTERWIN);
+        const results = getResults();
         setResult(results);
         setCounter(updateCounter(results));
     }, [player, computer]);
@@ -51,26 +53,24 @@ const ResultsComponent: React.FC<props> = ({
     return (
         <div className="results-container">
             <div className="game-btn-container-result">
-                <h3>You picked</h3>
-                <button className={`result-btn ${player.name}-result`}>
+                <h3 className="result-heading user-heading">You picked</h3>
+                <button className="result-btn user-btn">
                     <img src={player.image} alt={`${player.name} button`} />
                 </button>
             </div>
             <div className="reset-result-container">
-                <h2>{result}</h2>
+                <h2 className="winner-heading">{result}</h2>
                 <button className="reset-btn" onClick={reset}>
                     Play Again
                 </button>
             </div>
             <div className="game-btn-container-result">
-                <h3>
+                <h3 className="result-heading opponent-heading">
                     {opponent === opponentType.COMPUTER
                         ? "The House Picked"
                         : "Opponent Picked"}
                 </h3>
-                <button
-                    className={`opponent-result-btn ${computer.name}-result`}
-                >
+                <button className="result-btn opponent-btn">
                     <img src={computer.image} alt={`${computer.name} button`} />
                 </button>
             </div>
