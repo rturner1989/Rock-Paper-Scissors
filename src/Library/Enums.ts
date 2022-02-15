@@ -18,7 +18,7 @@ export enum gameType {
 
 export enum gameResult {
     PLAYERWIN = "Player Wins",
-    PLAYER2WIN = "Player 2 Wins",
+    PLAYER2WIN = "Opponent Wins",
     COMPUTERWIN = "Computer Wins",
     DRAW = "Draw",
 }
