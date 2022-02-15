@@ -78,7 +78,6 @@ const GameComponent: React.FC<props> = ({
                         ? setCompCounter
                         : setPlayerCounter
                 }
-                gameMode={gameMode}
             />
         );
     }

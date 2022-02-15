@@ -9,7 +9,6 @@ interface props {
     opponent: opponentType;
     reset: () => void;
     counter: number;
-    gameMode: gameType;
     setCounter: React.Dispatch<React.SetStateAction<number>>;
 }
 
@@ -20,7 +19,6 @@ const ResultsComponent: React.FC<props> = ({
     reset,
     counter,
     setCounter,
-    gameMode,
 }) => {
     const [result, setResult] = useState<string>("");
 
@@ -59,11 +57,7 @@ const ResultsComponent: React.FC<props> = ({
                 <h3 className="result-heading user-heading">You picked</h3>
                 <Button
                     btnClass={`result-btn user-btn ${player.name} ${player.name}-advanced`}
-                    iconClass={
-                        gameMode === gameType.GAME1
-                            ? "standard-bg"
-                            : "advanced-bg"
-                    }
+                    iconClass={"standard-bg"}
                     name={player.name}
                     image={player.image}
                     item={player}
@@ -84,11 +78,7 @@ const ResultsComponent: React.FC<props> = ({
                 </h3>
                 <Button
                     btnClass={`result-btn opponent-btn ${computer.name} ${computer.name}-advanced`}
-                    iconClass={
-                        gameMode === gameType.GAME1
-                            ? "standard-bg"
-                            : "advanced-bg"
-                    }
+                    iconClass={"standard-bg"}
                     name={computer.name}
                     image={computer.image}
                     item={computer}
