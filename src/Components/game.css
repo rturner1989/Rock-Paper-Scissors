@@ -187,31 +187,20 @@
 }
 /* Results Page */
 .results-container {
-    /* border: black solid 1px; */
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    padding: 2rem;
-    /* width: 432px; */
-    transition: all 0.5s ease;
-}
-/* .visible-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 570px;
-} */
+    gap: 1rem;
+    padding: 2rem;
+    position: relative;
+}
 .reset-result-container {
-    width: 0;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.5s ease;
-}
-.reset-result-visible {
-    opacity: 100%;
-    width: 100%;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 3.5s;
 }
 .game-btn-container-result {
     width: 100%;
@@ -231,12 +220,15 @@
     max-width: 150px;
     background-color: #ffffff;
     background-origin: border-box;
-    transition: 0.2s;
+    transition: 0.5s;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 50;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 1s forwards, moveLeft 1s ease 3s forwards;
+    transform: translateX(5rem);
 }
 .opponent-result-btn {
     border-radius: 100%;
@@ -252,10 +244,32 @@
     align-items: center;
     justify-content: center;
     z-index: 50;
+    transition: 0.2s;
     opacity: 0;
-    transition: all 0.5s ease;
+    animation: fadeIn 0.5s ease 2s forwards, moveRight 1s ease 3s forwards;
+    transform: translateX(-5rem);
 }
-.visible {
-    opacity: 100%;
-    visibility: visible;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100;
+    }
+}
+@keyframes moveLeft {
+    from {
+        transform: translateX(5rem);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes moveRight {
+    from {
+        transform: translateX(-5rem);
+    }
+    to {
+        transform: translateX(0);
+    }
 }
