@@ -157,13 +157,11 @@
 }
 .game-btn {
     border-radius: 100%;
-    border-width: 20px;
-    border-style: solid;
-    border-color: transparent;
+    border: 20px solid transparent;
     padding: 3rem;
     max-height: 180px;
     max-width: 180px;
-    background-color: #ffffff;
+    background-color: var(--BaseTextColor);
     background-origin: border-box;
     transition: 0.2s;
     cursor: pointer;
@@ -172,6 +170,9 @@
     justify-content: center;
     position: absolute;
     z-index: 50;
+}
+.game-btn:hover {
+    box-shadow: 1px 1px 10px 10px var(--BaseTextColor);
 }
 .icon-bg {
     position: absolute;
@@ -250,16 +251,12 @@
 }
 .result-btn {
     border-radius: 100%;
-    border-width: 20px;
-    border-style: solid;
-    border-color: transparent;
+    border: 20px solid transparent;
     padding: 4rem;
     max-width: 150px;
     max-height: 150px;
-    background-color: #ffffff;
+    background-color: var(--BaseTextColor);
     background-origin: border-box;
-    transition: 0.5s;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -366,12 +363,27 @@
     box-shadow: 0px 7px 0px 0px hsl(261, 72%, 45%);
 }
 /* Rules Button */
-.rules-btn {
-    padding: 0.4rem 2rem;
+.btn-container {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     margin-right: 6rem;
+}
+.home-link {
+    text-decoration: unset;
+    color: var(--BaseTextColor);
+}
+.rules-btn,
+.home-btn {
+    padding: 0.4rem 2rem;
     background: transparent;
     border-radius: 7px;
+    border-color: var(--HeaderOutline);
     color: var(--BaseTextColor);
     cursor: pointer;
-    align-self: flex-end;
+}
+.rules-btn:hover,
+.home-btn:hover {
+    border-color: var(--BaseTextColor);
 }

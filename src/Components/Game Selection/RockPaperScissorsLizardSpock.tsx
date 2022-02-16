@@ -7,6 +7,7 @@ import GameRule from "../Modal/Game Rule/GameRule";
 import ModalContainer from "../Modal/Modal Container/ModalContainer";
 import OpponentSelection from "../Opponent Selection/OpponentSelection";
 import GameHeader from "./Header/GameHeader";
+import { Link } from "react-router-dom";
 
 const RockPaperScissorsLizardSpock = () => {
     const [player, setPlayer] = useState<opponentType | null>(null);
@@ -56,12 +57,19 @@ const RockPaperScissorsLizardSpock = () => {
                     setPlayerCounter={setPlayerCounter}
                 />
             )}
-            <button
-                className="rules-btn"
-                onClick={() => setIsModalShown(!isModalShown)}
-            >
-                Rules
-            </button>
+            <div className="btn-container">
+                <button className="home-btn">
+                    <Link className="home-link" to="/Rock-Paper-Scissors">
+                        Home
+                    </Link>
+                </button>
+                <button
+                    className="rules-btn"
+                    onClick={() => setIsModalShown(!isModalShown)}
+                >
+                    Rules
+                </button>
+            </div>
         </div>
     );
 };
