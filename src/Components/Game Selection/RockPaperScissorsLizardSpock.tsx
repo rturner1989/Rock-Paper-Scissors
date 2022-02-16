@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { getSelectionAdvanced } from "../../Library/Data";
 import { gameType, opponentType } from "../../Library/Enums";
 import useLocalStorage from "../../Hooks/useLocalStorage";
@@ -7,7 +8,6 @@ import GameRule from "../Modal/Game Rule/GameRule";
 import ModalContainer from "../Modal/Modal Container/ModalContainer";
 import OpponentSelection from "../Opponent Selection/OpponentSelection";
 import GameHeader from "./Header/GameHeader";
-import { Link } from "react-router-dom";
 
 const RockPaperScissorsLizardSpock = () => {
     const [player, setPlayer] = useState<opponentType | null>(null);

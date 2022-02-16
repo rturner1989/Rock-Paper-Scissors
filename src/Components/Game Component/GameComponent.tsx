@@ -55,8 +55,8 @@ const GameComponent: React.FC<props> = ({
     function handlePlayerTurn() {
         if (opponent === opponentType.PLAYER) {
             if (!playerSelection)
-                return <h2 className="game-heading">Player 1</h2>;
-            return <h2 className="game-heading">Player 2</h2>;
+                return <h2 className="game-heading">{opponentType.PLAYER}</h2>;
+            return <h2 className="game-heading">{opponentType.OPPONENT}</h2>;
         }
         return;
     }

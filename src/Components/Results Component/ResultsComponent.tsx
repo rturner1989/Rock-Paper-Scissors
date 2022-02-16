@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { gameResult, gameType, opponentType } from "../../Library/Enums";
+import { gameResult, opponentType } from "../../Library/Enums";
 import { selection } from "../../Library/Interfaces";
 import Button from "../Button/Button";
 
@@ -56,6 +56,7 @@ const ResultsComponent: React.FC<props> = ({
             <div className="game-btn-container-result">
                 <h3 className="result-heading user-heading">You picked</h3>
                 <Button
+                    // Review this line
                     btnClass={`result-btn user-btn ${player.name} ${player.name}-advanced`}
                     iconClass={"standard-bg"}
                     name={player.name}
@@ -77,6 +78,7 @@ const ResultsComponent: React.FC<props> = ({
                         : "Opponent Picked"}
                 </h3>
                 <Button
+                    // Review this line
                     btnClass={`result-btn opponent-btn ${computer.name} ${computer.name}-advanced`}
                     iconClass={"standard-bg"}
                     name={computer.name}

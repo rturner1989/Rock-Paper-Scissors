@@ -1,6 +1,7 @@
 export enum opponentType {
     PLAYER = "player",
     COMPUTER = "computer",
+    OPPONENT = "opponent",
 }
 
 export enum options {
