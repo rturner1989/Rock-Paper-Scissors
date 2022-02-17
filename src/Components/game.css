@@ -292,7 +292,7 @@
 }
 .reset-btn {
     opacity: 0;
-    animation: fadeIn 1s ease 4.5s forwards;
+    animation: fadeIn 1s ease 4s forwards;
     border: unset;
     border-radius: 5px;
     background: var(--BaseTextColor);
@@ -341,26 +341,26 @@
 }
 .user-btn,
 .user-heading {
-    animation: fadeIn 0.5s ease 1s forwards, moveLeft 1s ease 3s forwards;
+    animation: fadeIn 0.5s ease 0.5s forwards, moveLeft 1s ease 2.5s forwards;
     transform: translateX(7rem);
 }
 .opponent-btn,
 .opponent-heading {
-    animation: fadeIn 0.5s ease 2s forwards, moveRight 1s ease 3s forwards;
+    animation: fadeIn 0.5s ease 1.5s forwards, moveRight 1s ease 2.5s forwards;
     transform: translateX(-7rem);
 }
 .player-winner {
     z-index: 0;
     box-shadow: 0 0 0 0 hsla(214, 47%, 23%, 80%),
         0 0 0 0 hsla(214, 47%, 23%, 60%), 0 0 0 0 hsla(214, 47%, 23%, 40%);
-    animation: fadeIn 0.5s ease 1s forwards, moveLeft 1s ease 3s forwards,
+    animation: fadeIn 0.5s ease 0.5s forwards, moveLeft 1s ease 2.5s forwards,
         shadow 0.5s ease 4s forwards;
 }
 .opponent-winner {
     z-index: 0;
     box-shadow: 0 0 0 0 hsla(214, 47%, 23%, 80%),
         0 0 0 0 hsla(214, 47%, 23%, 60%), 0 0 0 0 hsla(214, 47%, 23%, 40%);
-    animation: fadeIn 0.5s ease 2s forwards, moveRight 1s ease 3s forwards,
+    animation: fadeIn 0.5s ease 1.5s forwards, moveRight 1s ease 2.5s forwards,
         shadow 0.5s ease 4s forwards;
 }
 .reset-btn:hover {

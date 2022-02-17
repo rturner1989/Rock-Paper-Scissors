@@ -50,7 +50,7 @@ const ResultsComponent: React.FC<props> = ({
         setResult(results);
         let timer = setTimeout(() => {
             setCounter(updateCounter(results));
-        }, 4000);
+        }, 3500);
         return () => {
             clearTimeout(timer);
         };
