@@ -171,8 +171,9 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    width: 550px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
 }
 .opponent-selection-heading {
     color: var(--BaseTextColor);
@@ -207,7 +208,8 @@
     gap: 3rem;
     position: relative;
     width: 550px;
-    height: 500px;
+    height: 100%;
+    max-height: 500px;
 }
 .game-heading {
     color: var(--BaseTextColor);
@@ -280,9 +282,11 @@
     animation-delay: 3.5s;
     gap: 1rem;
     min-width: 220px;
+    z-index: 100;
 }
 .winner-heading {
     font-size: 2rem;
+    font-weight: 800;
     text-transform: uppercase;
     color: var(--BaseTextColor);
 }
@@ -298,6 +302,10 @@
     color: var(--HeaderOutline);
     cursor: pointer;
     text-transform: uppercase;
+    width: 141px;
+}
+.reset-btn:hover {
+    color: red;
 }
 .game-btn-container-result {
     width: 100%;
@@ -315,6 +323,7 @@
     opacity: 0;
     text-transform: uppercase;
     text-align: center;
+    z-index: 50;
 }
 .result-btn {
     border-radius: 100%;
@@ -339,6 +348,20 @@
 .opponent-heading {
     animation: fadeIn 0.5s ease 2s forwards, moveRight 1s ease 3s forwards;
     transform: translateX(-7rem);
+}
+.player-winner {
+    z-index: 0;
+    box-shadow: 0 0 0 0 hsla(214, 47%, 23%, 80%),
+        0 0 0 0 hsla(214, 47%, 23%, 60%), 0 0 0 0 hsla(214, 47%, 23%, 40%);
+    animation: fadeIn 0.5s ease 1s forwards, moveLeft 1s ease 3s forwards,
+        shadow 0.5s ease 4s forwards;
+}
+.opponent-winner {
+    z-index: 0;
+    box-shadow: 0 0 0 0 hsla(214, 47%, 23%, 80%),
+        0 0 0 0 hsla(214, 47%, 23%, 60%), 0 0 0 0 hsla(214, 47%, 23%, 40%);
+    animation: fadeIn 0.5s ease 2s forwards, moveRight 1s ease 3s forwards,
+        shadow 0.5s ease 4s forwards;
 }
 .reset-btn:hover {
     transform: rotate(-360deg);
@@ -368,6 +391,17 @@
     }
     to {
         transform: translateX(0);
+    }
+}
+@keyframes shadow {
+    from {
+        box-shadow: 0 0 0 0 hsla(214, 47%, 23%, 80%),
+            0 0 0 0 hsla(214, 47%, 23%, 60%), 0 0 0 0 hsla(214, 47%, 23%, 40%);
+    }
+    to {
+        box-shadow: 0 0 0 33px hsla(214, 47%, 23%, 80%),
+            0 0 0 66px hsla(214, 47%, 23%, 60%),
+            0 0 0 100px hsla(214, 47%, 23%, 40%);
     }
 }
 /* Basic Buttons */
@@ -428,6 +462,7 @@
     background-image: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
     box-shadow: 0px 7px 0px 0px hsl(261, 72%, 45%);
 }
+
 /* Rules Button */
 .btn-container {
     align-self: flex-end;

@@ -62,7 +62,11 @@ const ResultsComponent: React.FC<props> = ({
                 <h3 className="result-heading user-heading">You picked</h3>
                 <Button
                     // Review this line
-                    btnClass={`result-btn user-btn ${player.name} ${player.name}-advanced`}
+                    btnClass={
+                        result === gameResult.PLAYERWIN
+                            ? `result-btn user-btn ${player.name} ${player.name}-advanced player-winner`
+                            : `result-btn user-btn ${player.name} ${player.name}-advanced`
+                    }
                     iconClass={"standard-bg"}
                     name={player.name}
                     image={player.image}
@@ -84,7 +88,12 @@ const ResultsComponent: React.FC<props> = ({
                 </h3>
                 <Button
                     // Review this line
-                    btnClass={`result-btn opponent-btn ${computer.name} ${computer.name}-advanced`}
+                    btnClass={
+                        result === gameResult.COMPUTERWIN ||
+                        result === gameResult.PLAYER2WIN
+                            ? `result-btn opponent-btn ${computer.name} ${computer.name}-advanced opponent-winner`
+                            : `result-btn opponent-btn ${computer.name} ${computer.name}-advanced`
+                    }
                     iconClass={"standard-bg"}
                     name={computer.name}
                     image={computer.image}
