@@ -12,32 +12,28 @@ const ScoreCard: React.FC<props> = ({ player, opponent, user }) => {
         return (
             <div className="score-container">
                 <div className="score-text">
-                    <h3>Score vs Computer</h3>
-                    <h3>{opponent}</h3>
+                    <h3 className="score-title">Score vs Computer</h3>
+                    <h3 className="score-counter">{opponent}</h3>
                 </div>
                 <div className="score-text">
-                    <h3>Score vs Player</h3>
-                    <h3>{user}</h3>
+                    <h3 className="score-title">Score vs Player</h3>
+                    <h3 className="score-counter">{user}</h3>
                 </div>
             </div>
         );
     }
     if (player === opponentType.COMPUTER) {
         return (
-            <div className="score-container">
-                <div className="score-text">
-                    <h3>Score</h3>
-                    <h3>{opponent}</h3>
-                </div>
+            <div className="single-score-container">
+                <h3 className="single-score-title">Score</h3>
+                <h3 className="single-score-counter">{opponent}</h3>
             </div>
         );
     }
     return (
-        <div className="score-container">
-            <div className="score-text">
-                <h3>Score</h3>
-                <h3>{user}</h3>
-            </div>
+        <div className="single-score-container">
+            <h3 className="single-score-title">Score</h3>
+            <h3 className="single-score-counter">{user}</h3>
         </div>
     );
 };

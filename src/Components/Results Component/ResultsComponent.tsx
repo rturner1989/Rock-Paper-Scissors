@@ -48,7 +48,12 @@ const ResultsComponent: React.FC<props> = ({
         if (!player || !computer) return;
         const results = getResults();
         setResult(results);
-        setCounter(updateCounter(results));
+        let timer = setTimeout(() => {
+            setCounter(updateCounter(results));
+        }, 4000);
+        return () => {
+            clearTimeout(timer);
+        };
     }, [player, computer]);
 
     return (

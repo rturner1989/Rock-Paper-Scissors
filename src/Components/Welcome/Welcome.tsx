@@ -8,16 +8,18 @@ const Welcome = () => {
                 <h2>Please select your game</h2>
             </div>
             <div className="welcome-navigation">
-                <button className="game-selection">
-                    <Link to="/Rock-Paper-Scissors/RockPaperScissors">
-                        Rock Paper Scissors
-                    </Link>
-                </button>
-                <button className="game-selection">
-                    <Link to="/Rock-Paper-Scissors/RockPaperScissorsLizardSpock">
-                        Rock Paper Scissors Lizard Spock
-                    </Link>
-                </button>
+                <Link
+                    className="game-selection link"
+                    to="/Rock-Paper-Scissors/RockPaperScissors"
+                >
+                    Rock Paper Scissors
+                </Link>
+                <Link
+                    className="game-selection link"
+                    to="/Rock-Paper-Scissors/RockPaperScissorsLizardSpock"
+                >
+                    Rock Paper Scissors Lizard Spock
+                </Link>
             </div>
         </div>
     );

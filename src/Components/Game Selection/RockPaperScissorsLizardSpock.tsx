@@ -58,11 +58,9 @@ const RockPaperScissorsLizardSpock = () => {
                 />
             )}
             <div className="btn-container">
-                <button className="home-btn">
-                    <Link className="home-link" to="/Rock-Paper-Scissors">
-                        Home
-                    </Link>
-                </button>
+                <Link className="home-btn link" to="/Rock-Paper-Scissors">
+                    Home
+                </Link>
                 <button
                     className="rules-btn"
                     onClick={() => setIsModalShown(!isModalShown)}

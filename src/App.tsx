@@ -8,20 +8,14 @@ function App() {
         <div className="App">
             <Routes>
                 <Route
-                    // path="/"
-                    path="/Rock-Paper-Scissors"
-                    element={<Welcome />}
-                />
-                <Route
-                    // path="/RockPaperScissors"
                     path="/Rock-Paper-Scissors/RockPaperScissors"
                     element={<RockPaperScissors />}
                 />
                 <Route
-                    // path="/RockPaperScissorsLizardSpock"
                     path="/Rock-Paper-Scissors/RockPaperScissorsLizardSpock"
                     element={<RockPaperScissorsLizardSpock />}
                 />
+                <Route path="/Rock-Paper-Scissors" element={<Welcome />} />
             </Routes>
         </div>
     );
