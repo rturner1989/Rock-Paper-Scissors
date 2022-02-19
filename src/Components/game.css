@@ -600,11 +600,11 @@
         bottom: 2rem;
     }
     .Paper {
-        top: 2rem;
+        top: 1rem;
         left: 2rem;
     }
     .Scissors {
-        top: 2rem;
+        top: 1rem;
         right: 2rem;
     }
     .Rock-advanced {
@@ -686,21 +686,32 @@
     }
     /* Game Summary */
     .selected-game {
-        gap: 1rem;
+        /* gap: 1rem; */
+        flex-direction: row;
+        padding: 1rem;
     }
     /* Game Header */
     .game-header {
-        margin-top: 2rem;
-        width: 80%;
-        height: unset;
+        width: unset;
+        max-width: 150px;
+        height: 80%;
         padding: 0.5rem;
+        flex-direction: column;
+        justify-content: space-evenly;
+        z-index: 200;
+        background-color: hsl(237, 49%, 15%);
     }
     .header-img {
-        max-width: 40%;
+        max-width: 100%;
     }
     .score-reset-container {
         padding: 0.5rem;
         min-width: 82px;
+        height: unset;
+        gap: 0.5rem;
+    }
+    .score-container {
+        gap: 0.5rem;
     }
     .single-score-counter {
         font-size: 2.5rem;
@@ -716,16 +727,156 @@
     }
     /* Rules Button */
     .btn-container {
-        display: flex;
-        flex-direction: row;
         justify-content: space-around;
-        width: 100%;
-        gap: 20rem;
         align-self: unset;
-        margin-bottom: 2rem;
         margin-right: unset;
     }
     .home-btn {
         max-width: 101px;
+    }
+    /* Modal */
+    .rules-modal {
+        width: 100%;
+        height: 100%;
+        border: unset;
+        border-radius: unset;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .modal-header {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .modal-title {
+        font-size: 1.6rem;
+    }
+    .modal-img {
+        max-width: 50%;
+    }
+    .close-modal-btn {
+        font-size: 1.6rem;
+    }
+    /* Game Content */
+    .game-container {
+        max-width: 375px;
+        gap: unset;
+    }
+    .game-btn-container {
+        width: 100%;
+        max-width: 375px;
+        height: 100%;
+        max-height: 340px;
+        padding: 0;
+    }
+    .game-background-img {
+        max-width: 225px;
+    }
+    .game-btn {
+        height: 50px;
+        width: 50px;
+        border: 10px solid transparent;
+    }
+    .standard-bg {
+        width: 80px;
+        height: 80px;
+    }
+    .advanced-bg {
+        width: 70px;
+        height: 70px;
+    }
+    .choice-svg {
+        max-width: 40px;
+    }
+    .Rock,
+    .Paper,
+    .Scissors {
+        padding: 3rem;
+    }
+    .Rock-advanced,
+    .Paper-advanced,
+    .Scissors-advanced,
+    .Lizard-advanced,
+    .Spock-advanced {
+        padding: 2.5rem;
+    }
+    .Rock {
+        bottom: 2rem;
+    }
+    .Paper {
+        top: 1rem;
+        left: 2rem;
+    }
+    .Scissors {
+        top: 1rem;
+        right: 2rem;
+    }
+    .Rock-advanced {
+        bottom: 1.5rem;
+        right: 4.5rem;
+    }
+    .Paper-advanced {
+        top: 5.5rem;
+        right: 2rem;
+    }
+    .Scissors-advanced {
+        top: 1rem;
+    }
+    .Lizard-advanced {
+        bottom: 1.5rem;
+        left: 4.5rem;
+    }
+    .Spock-advanced {
+        top: 5.5rem;
+        left: 2rem;
+    }
+    /* Results Container */
+    .results-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        max-width: 375px;
+    }
+    .mobile-result-btn-container {
+        display: flex;
+        width: 100%;
+    }
+    .result-btn {
+        height: 50px;
+        width: 50px;
+    }
+    .user-btn,
+    .user-heading {
+        animation: fadeIn 0.5s ease 0.5s forwards;
+        transform: translateX(0rem);
+    }
+    .opponent-btn,
+    .opponent-heading {
+        animation: fadeIn 0.5s ease 1.5s forwards;
+        transform: translateX(0rem);
+    }
+    .player-winner {
+        z-index: 0;
+        box-shadow: 0 0 0 0 hsla(214, 47%, 23%, 80%),
+            0 0 0 0 hsla(214, 47%, 23%, 60%), 0 0 0 0 hsla(214, 47%, 23%, 40%);
+        animation: fadeIn 0.5s ease 0.5s forwards,
+            shadow 0.5s ease 2.5s forwards;
+    }
+    .opponent-winner {
+        z-index: 0;
+        box-shadow: 0 0 0 0 hsla(214, 47%, 23%, 80%),
+            0 0 0 0 hsla(214, 47%, 23%, 60%), 0 0 0 0 hsla(214, 47%, 23%, 40%);
+        animation: fadeIn 0.5s ease 1.5s forwards,
+            shadow 0.5s ease 2.5s forwards;
+    }
+    .reset-result-container {
+        animation: fadeIn 1s ease 2.5s forwards;
+    }
+    .reset-btn {
+        animation: fadeIn 1s ease 3.5s forwards;
     }
 }

@@ -29,9 +29,9 @@ const GameRule: React.FC<props> = ({ img, altText, handleClose }) => {
     return (
         <div className="rules-modal">
             <div className="modal-header">
-                <h3>Rules</h3>
+                <h3 className="modal-title">Rules</h3>
                 <button className="close-modal-btn" onClick={handleClose}>
-                    <span className="visually-hidden">add task</span>
+                    <span className="visually-hidden">Close Modal</span>
                     <IoMdClose
                         className="close-modal-svg"
                         aria-hidden={true}
@@ -39,7 +39,7 @@ const GameRule: React.FC<props> = ({ img, altText, handleClose }) => {
                     />
                 </button>
             </div>
-            <img src={img} alt={altText} />
+            <img className="modal-img" src={img} alt={altText} />
         </div>
     );
 };

@@ -58,7 +58,7 @@ const ResultsComponent: React.FC<props> = ({
     }, [player, computer]);
 
     const [windowDimensions] = useWindowDimensions();
-    if (windowDimensions.width < 430) {
+    if (windowDimensions.width < 930) {
         return (
             <div className="results-container">
                 <div className="mobile-result-btn-container">
