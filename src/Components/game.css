@@ -626,6 +626,55 @@
         top: 5.5rem;
         left: 2rem;
     }
+    /* Results Container */
+    .results-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+    }
+    .mobile-result-btn-container {
+        display: flex;
+        width: 100%;
+    }
+    .result-btn {
+        height: 50px;
+        width: 50px;
+    }
+    .user-btn,
+    .user-heading {
+        animation: fadeIn 0.5s ease 0.5s forwards;
+        transform: translateX(0rem);
+    }
+    .opponent-btn,
+    .opponent-heading {
+        animation: fadeIn 0.5s ease 1.5s forwards;
+        transform: translateX(0rem);
+    }
+    .player-winner {
+        z-index: 0;
+        box-shadow: 0 0 0 0 hsla(214, 47%, 23%, 80%),
+            0 0 0 0 hsla(214, 47%, 23%, 60%), 0 0 0 0 hsla(214, 47%, 23%, 40%);
+        animation: fadeIn 0.5s ease 0.5s forwards,
+            shadow 0.5s ease 2.5s forwards;
+    }
+    .opponent-winner {
+        z-index: 0;
+        box-shadow: 0 0 0 0 hsla(214, 47%, 23%, 80%),
+            0 0 0 0 hsla(214, 47%, 23%, 60%), 0 0 0 0 hsla(214, 47%, 23%, 40%);
+        animation: fadeIn 0.5s ease 1.5s forwards,
+            shadow 0.5s ease 2.5s forwards;
+    }
+    .reset-result-container {
+        animation: fadeIn 1s ease 2.5s forwards;
+    }
+    .reset-btn {
+        animation: fadeIn 1s ease 3.5s forwards;
+    }
 }
 @media screen and (max-width: 930px) and (orientation: landscape) {
     /* Welcome and Game Section */

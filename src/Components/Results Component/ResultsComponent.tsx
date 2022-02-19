@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import useWindowDimensions from "../../Hooks/useWindowDimensions";
 import { gameResult, opponentType } from "../../Library/Enums";
 import { selection } from "../../Library/Interfaces";
 import Button from "../Button/Button";
@@ -55,6 +56,61 @@ const ResultsComponent: React.FC<props> = ({
             clearTimeout(timer);
         };
     }, [player, computer]);
+
+    const [windowDimensions] = useWindowDimensions();
+    if (windowDimensions.width < 430) {
+        return (
+            <div className="results-container">
+                <div className="mobile-result-btn-container">
+                    <div className="game-btn-container-result">
+                        <h3 className="result-heading user-heading">
+                            You picked
+                        </h3>
+                        <Button
+                            // Review this line
+                            btnClass={
+                                result === gameResult.PLAYERWIN
+                                    ? `result-btn user-btn ${player.name} ${player.name}-advanced player-winner`
+                                    : `result-btn user-btn ${player.name} ${player.name}-advanced`
+                            }
+                            iconClass={"standard-bg"}
+                            name={player.name}
+                            image={player.image}
+                            item={player}
+                            handlePlayerChoice={undefined}
+                        />
+                    </div>
+                    <div className="game-btn-container-result">
+                        <h3 className="result-heading opponent-heading">
+                            {opponent === opponentType.COMPUTER
+                                ? "The House Picked"
+                                : "Opponent Picked"}
+                        </h3>
+                        <Button
+                            // Review this line
+                            btnClass={
+                                result === gameResult.COMPUTERWIN ||
+                                result === gameResult.PLAYER2WIN
+                                    ? `result-btn opponent-btn ${computer.name} ${computer.name}-advanced opponent-winner`
+                                    : `result-btn opponent-btn ${computer.name} ${computer.name}-advanced`
+                            }
+                            iconClass={"standard-bg"}
+                            name={computer.name}
+                            image={computer.image}
+                            item={computer}
+                            handlePlayerChoice={undefined}
+                        />
+                    </div>
+                </div>
+                <div className="reset-result-container">
+                    <h2 className="winner-heading">{result}</h2>
+                    <button className="reset-btn" onClick={reset}>
+                        Play Again
+                    </button>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="results-container">
