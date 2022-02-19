@@ -486,3 +486,153 @@
 .home-btn:hover {
     border-color: var(--BaseTextColor);
 }
+
+/* Mobile View */
+@media screen and (max-width: 430px) and (orientation: portrait) {
+    /* Welcome and Game Section */
+    .welcome-navigation {
+        flex-direction: column;
+    }
+    .game-selection {
+        min-width: unset;
+    }
+    /* Game Summary */
+    .selected-game {
+        gap: 1rem;
+    }
+    /* Game Header */
+    .game-header {
+        margin-top: 2rem;
+        width: 80%;
+        height: unset;
+        padding: 0.5rem;
+    }
+    .header-img {
+        max-width: 40%;
+    }
+    .score-reset-container {
+        padding: 0.5rem;
+        min-width: 82px;
+    }
+    .single-score-counter {
+        font-size: 2.5rem;
+    }
+    /* Game Selector */
+    .opponent-selection-heading {
+        font-size: 1.3rem;
+    }
+    .selection-btn-container {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    /* Rules Button */
+    .btn-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-self: unset;
+        margin-right: unset;
+        margin-bottom: 2rem;
+    }
+    /* Modal */
+    .rules-modal {
+        width: 100%;
+        height: 100%;
+        border: unset;
+        border-radius: unset;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .modal-title {
+        font-size: 1.6rem;
+    }
+    .modal-img {
+        max-width: 100%;
+    }
+    .close-modal-btn {
+        font-size: 1.6rem;
+    }
+    /* Game Content */
+    .game-container {
+        max-width: 100%;
+        gap: unset;
+    }
+    .game-btn-container {
+        width: 100%;
+        max-width: 375px;
+        height: 100%;
+        max-height: 340px;
+        padding: 0;
+    }
+    .game-background-img {
+        max-width: 225px;
+    }
+    .game-btn {
+        height: 50px;
+        width: 50px;
+        border: 10px solid transparent;
+    }
+    .standard-bg {
+        width: 80px;
+        height: 80px;
+    }
+    .advanced-bg {
+        width: 70px;
+        height: 70px;
+    }
+    .choice-svg {
+        max-width: 40px;
+    }
+    .Rock,
+    .Paper,
+    .Scissors {
+        padding: 3rem;
+    }
+    .Rock-advanced,
+    .Paper-advanced,
+    .Scissors-advanced,
+    .Lizard-advanced,
+    .Spock-advanced {
+        padding: 2.5rem;
+    }
+    .Rock {
+        bottom: 2rem;
+    }
+    .Paper {
+        top: 2rem;
+        left: 2rem;
+    }
+    .Scissors {
+        top: 2rem;
+        right: 2rem;
+    }
+    .Rock-advanced {
+        bottom: 1.5rem;
+        right: 4.5rem;
+    }
+    .Paper-advanced {
+        top: 5.5rem;
+        right: 2rem;
+    }
+    .Scissors-advanced {
+        top: 1rem;
+    }
+    .Lizard-advanced {
+        bottom: 1.5rem;
+        left: 4.5rem;
+    }
+    .Spock-advanced {
+        top: 5.5rem;
+        left: 2rem;
+    }
+}
+@media screen and (max-width: 930px) and (orientation: landscape) {
+    /* Welcome and Game Section */
+    .welcome-navigation {
+        flex-direction: column;
+    }
+    .game-selection {
+        min-width: unset;
+    }
+}

@@ -110,6 +110,7 @@ const GameComponent: React.FC<props> = ({
                     );
                 })}
                 <img
+                    className="game-background-img"
                     src={
                         gameMode === gameType.GAME1
                             ? "./Images/bg-triangle.svg"
