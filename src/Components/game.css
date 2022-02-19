@@ -17,6 +17,9 @@
 }
 .welcome-navigation {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 .game-selection {
@@ -37,8 +40,6 @@
 .link {
     text-decoration: unset;
     color: var(--BaseTextColor);
-    width: 100%;
-    height: 100%;
 }
 /* Game Summary */
 .selected-game {
@@ -54,6 +55,7 @@
 .game-header {
     width: 50%;
     max-width: 600px;
+    min-width: 395px;
     height: 160px;
     display: flex;
     align-items: center;
@@ -487,14 +489,14 @@
     border-color: var(--BaseTextColor);
 }
 
-/* Mobile View */
-@media screen and (max-width: 430px) and (orientation: portrait) {
+/* Mobile View Portrait */
+@media screen and (max-width: 430px) and (max-height: 930px) {
     /* Welcome and Game Section */
     .welcome-navigation {
         flex-direction: column;
     }
     .game-selection {
-        min-width: unset;
+        min-width: 300px;
     }
     /* Game Summary */
     .selected-game {
@@ -506,6 +508,8 @@
         width: 80%;
         height: unset;
         padding: 0.5rem;
+        z-index: 150;
+        min-width: unset;
     }
     .header-img {
         max-width: 40%;
@@ -639,6 +643,8 @@
     }
     .mobile-result-btn-container {
         display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         width: 100%;
     }
     .result-btn {
@@ -676,13 +682,11 @@
         animation: fadeIn 1s ease 3.5s forwards;
     }
 }
-@media screen and (max-width: 930px) and (orientation: landscape) {
+/* Mobile View Landscape */
+@media screen and (max-width: 930px) and (max-height: 430px) {
     /* Welcome and Game Section */
     .welcome-navigation {
         flex-direction: column;
-    }
-    .game-selection {
-        min-width: unset;
     }
     /* Game Summary */
     .selected-game {
@@ -694,11 +698,12 @@
     .game-header {
         width: unset;
         max-width: 150px;
+        min-width: unset;
         height: 80%;
         padding: 0.5rem;
         flex-direction: column;
         justify-content: space-evenly;
-        z-index: 200;
+        z-index: 150;
         background-color: hsl(237, 49%, 15%);
     }
     .header-img {
@@ -730,6 +735,8 @@
         justify-content: space-around;
         align-self: unset;
         margin-right: unset;
+        z-index: 150;
+        background-color: hsl(237, 49%, 15%);
     }
     .home-btn {
         max-width: 101px;
