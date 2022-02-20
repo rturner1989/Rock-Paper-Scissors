@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Rock-Paper-Scissors/static/css/main.b63115bd.css",
+    "main.css": "/Rock-Paper-Scissors/static/css/main.f86e260e.css",
     "main.js": "/Rock-Paper-Scissors/static/js/main.45f1919d.js",
     "index.html": "/Rock-Paper-Scissors/index.html",
-    "main.b63115bd.css.map": "/Rock-Paper-Scissors/static/css/main.b63115bd.css.map",
+    "main.f86e260e.css.map": "/Rock-Paper-Scissors/static/css/main.f86e260e.css.map",
     "main.45f1919d.js.map": "/Rock-Paper-Scissors/static/js/main.45f1919d.js.map"
   },
   "entrypoints": [
-    "static/css/main.b63115bd.css",
+    "static/css/main.f86e260e.css",
     "static/js/main.45f1919d.js"
   ]
 }
