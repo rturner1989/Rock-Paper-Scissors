@@ -10,11 +10,33 @@
     --DarkText: hsl(229, 25%, 31%);
     --ScoreText: hsl(229, 64%, 46%);
     --HeaderOutline: hsl(217, 16%, 45%);
+    --winnerShadow: 0 0 0 0 hsla(214, 47%, 23%, 80%),
+        0 0 0 0 hsla(214, 47%, 23%, 60%), 0 0 0 0 hsla(214, 47%, 23%, 40%);
+    --landscapeBackground: hsl(237, 49%, 15%);
+    --mobileAnimationUserBtn: fadeIn 0.5s ease 0.5s forwards;
+    --mobileAnimationOpponentBtn: fadeIn 0.5s ease 1.5s forwards;
+    --mobilePlayerWinnerAnimation: fadeIn 0.5s ease 0.5s forwards,
+        shadow 0.5s ease 2.5s forwards;
+    --mobileOpponenetWinnerAnimation: fadeIn 0.5s ease 1.5s forwards,
+        shadow 0.5s ease 2.5s forwards;
+    --mobileResetContainerAnimation: fadeIn 1s ease 2.5s forwards;
+    --mobileResetBtnAnimation: fadeIn 1s ease 3.5s forwards;
+    --bottomIndex: 0;
+    --middleIndex: 100;
+    --topIndex: 200;
+    --modalIndex: 250;
+}
+
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
 }
 
 #root {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: hsl(214, 47%, 23%);
     background: radial-gradient(
         ellipse at top,
