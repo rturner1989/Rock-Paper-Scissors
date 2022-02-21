@@ -17,7 +17,7 @@
     --mobileAnimationOpponentBtn: fadeIn 0.5s ease 1.5s forwards;
     --mobilePlayerWinnerAnimation: fadeIn 0.5s ease 0.5s forwards,
         shadow 0.5s ease 2.5s forwards;
-    --mobileOpponenetWinnerAnimation: fadeIn 0.5s ease 1.5s forwards,
+    --mobileOpponentWinnerAnimation: fadeIn 0.5s ease 1.5s forwards,
         shadow 0.5s ease 2.5s forwards;
     --mobileResetContainerAnimation: fadeIn 1s ease 2.5s forwards;
     --mobileResetBtnAnimation: fadeIn 1s ease 3.5s forwards;
@@ -27,7 +27,6 @@
     --modalIndex: 250;
 }
 
-html,
 body {
     width: 100vw;
     height: 100vh;

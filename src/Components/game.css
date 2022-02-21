@@ -763,6 +763,9 @@
         max-width: 375px;
         gap: unset;
     }
+    .game-heading {
+        position: absolute;
+    }
     .game-btn-container {
         width: 100%;
         max-width: 375px;
